@@ -1,10 +1,10 @@
 <div align="center">
 
 <picture>
-  <img alt="EngagePilot — open-source Instagram comment-to-DM automation" src="app/opengraph-image.jpg" width="100%">
+  <img alt="InstaMation — open-source Instagram comment-to-DM automation" src="app/opengraph-image.jpg" width="100%">
 </picture>
 
-# EngagePilot
+# InstaMation
 
 ### 🚀 Open-source ManyChat alternative — turn Instagram comments into DMs automatically.
 
@@ -13,15 +13,15 @@
 <br>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/AmitDas4321/EngagePilot?style=social)](https://github.com/AmitDas4321/EngagePilot/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/AmitDas4321/EngagePilot?style=social)](https://github.com/AmitDas4321/EngagePilot/network/members)
-[![GitHub issues](https://img.shields.io/github/issues/AmitDas4321/EngagePilot)](https://github.com/AmitDas4321/EngagePilot/issues)
-[![GitHub pull requests](https://img.shields.io/github/issues-pr/AmitDas4321/EngagePilot)](https://github.com/AmitDas4321/EngagePilot/pulls)
+[![GitHub stars](https://img.shields.io/github/stars/explorearafat/InstaMation?style=social)](https://github.com/explorearafat/InstaMation/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/explorearafat/InstaMation?style=social)](https://github.com/explorearafat/InstaMation/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/explorearafat/InstaMation)](https://github.com/explorearafat/InstaMation/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/explorearafat/InstaMation)](https://github.com/explorearafat/InstaMation/pulls)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#contributing)
-[![Last commit](https://img.shields.io/github/last-commit/AmitDas4321/EngagePilot)](https://github.com/AmitDas4321/EngagePilot/commits/main)
-[![Contributors](https://img.shields.io/github/contributors/AmitDas4321/EngagePilot)](https://github.com/AmitDas4321/EngagePilot/graphs/contributors)
-[![Repo size](https://img.shields.io/github/repo-size/AmitDas4321/EngagePilot)](https://github.com/AmitDas4321/EngagePilot)
-[![Commit activity](https://img.shields.io/github/commit-activity/m/AmitDas4321/EngagePilot)](https://github.com/AmitDas4321/EngagePilot/commits/main)
+[![Last commit](https://img.shields.io/github/last-commit/explorearafat/InstaMation)](https://github.com/explorearafat/InstaMation/commits/main)
+[![Contributors](https://img.shields.io/github/contributors/explorearafat/InstaMation)](https://github.com/explorearafat/InstaMation/graphs/contributors)
+[![Repo size](https://img.shields.io/github/repo-size/explorearafat/InstaMation)](https://github.com/explorearafat/InstaMation)
+[![Commit activity](https://img.shields.io/github/commit-activity/m/explorearafat/InstaMation)](https://github.com/explorearafat/InstaMation/commits/main)
 
 <br>
 
@@ -39,13 +39,13 @@
 
 **Keywords:** `instagram-automation` · `comment-to-dm` · `manychat-alternative` · `meta-api` · `instagram-dm-bot` · `bullmq` · `nextjs` · `self-hosted`
 
-[Documentation](SETUP.md) · [Tech Stack](docs/stack.md) · [Contributing](CONTRIBUTING.md) · [Report a Bug](https://github.com/AmitDas4321/EngagePilot/issues)
+[Documentation](SETUP.md) · [Tech Stack](docs/stack.md) · [Contributing](CONTRIBUTING.md) · [Report a Bug](https://github.com/explorearafat/InstaMation/issues)
 
 </div>
 
-**EngagePilot is a free, self-hosted Instagram comment-to-DM automation tool** — the open-source ManyChat alternative. Someone comments `LINK` on your reel, and they get a DM with your link a second later. That is the whole idea. EngagePilot watches the comments on your Instagram posts, and when a comment matches a keyword you set, it sends that person a private reply through the official Meta API. You can also post a public reply under the comment at the same time.
+**InstaMation is a free, self-hosted Instagram comment-to-DM automation tool** — the open-source ManyChat alternative. Someone comments `LINK` on your reel, and they get a DM with your link a second later. That is the whole idea. InstaMation watches the comments on your Instagram posts, and when a comment matches a keyword you set, it sends that person a private reply through the official Meta API. You can also post a public reply under the comment at the same time.
 
-ManyChat does this and charges a monthly fee. EngagePilot is the same core feature — free, running on your own infrastructure, with no seat limits and no plan caps.
+ManyChat does this and charges a monthly fee. InstaMation is the same core feature — free, running on your own infrastructure, with no seat limits and no plan caps.
 
 > [!TIP]
 > If this saves you a subscription or a weekend of building, a ⭐ on the repo genuinely helps other people find it.
@@ -70,7 +70,7 @@ ManyChat does this and charges a monthly fee. EngagePilot is the same core featu
 
 Comment-to-DM is one feature, but every tool that offers it wants a recurring subscription for it. The actual work is a webhook, a keyword match, and one API call to Meta. That does not need to cost anything to run for a single account.
 
-EngagePilot is built around Meta's official Instagram private replies. It does **not** scrape, it does **not** automate a browser, and it never asks for an Instagram password. That keeps your account inside Meta's rules, which matters if you care about not getting flagged.
+InstaMation is built around Meta's official Instagram private replies. It does **not** scrape, it does **not** automate a browser, and it never asks for an Instagram password. That keeps your account inside Meta's rules, which matters if you care about not getting flagged.
 
 ---
 
@@ -82,7 +82,7 @@ EngagePilot is built around Meta's official Instagram private replies. It does *
 | **Optional public reply** | Post a visible comment reply on top of the DM. |
 | **Tracked links** | Swap a link for a tracked redirect and see clicks and CTR per campaign. |
 | **Two link buttons** | Send up to two tappable link buttons in one DM, each a separate tracked link with its own click stats. |
-| **Follow gate** | Optionally require a follow before you hand over the link. The DM asks the commenter to follow and tap a button; on tap, EngagePilot checks Meta's `is_user_follow_business` flag and only sends the link once they follow, re-prompting until then. It fails open (sends the link anyway) when Instagram does not return follow status, so a real follower is never trapped. |
+| **Follow gate** | Optionally require a follow before you hand over the link. The DM asks the commenter to follow and tap a button; on tap, InstaMation checks Meta's `is_user_follow_business` flag and only sends the link once they follow, re-prompting until then. It fails open (sends the link anyway) when Instagram does not return follow status, so a real follower is never trapped. |
 | **Personalization** | Use `{username}` in your message to greet the commenter by name. |
 | **Per-account rate limiting** | Stays under Meta's documented cap of 750 private replies per hour, and queues the overflow instead of dropping it. |
 | **Multiple Instagram accounts** | Connect several professional accounts under one workspace, each with its own limits. |
@@ -118,8 +118,8 @@ EngagePilot is built around Meta's official Instagram private replies. It does *
 ```
 
 1. Someone comments on your Instagram post or reel.
-2. Meta sends a webhook to your EngagePilot instance.
-3. EngagePilot checks the comment against your active campaigns.
+2. Meta sends a webhook to your InstaMation instance.
+3. InstaMation checks the comment against your active campaigns.
 4. On a keyword match, it queues a job.
 5. A background worker sends the private reply — and the public reply, if you enabled one.
 
@@ -136,13 +136,13 @@ The honest version: the code deploys in minutes, but the Meta app setup is the p
 
 ### Deploy the web app
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/AmitDas4321/EngagePilot)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/explorearafat/InstaMation)
 
 ### Run it locally
 
 ```bash
-git clone https://github.com/AmitDas4321/EngagePilot.git
-cd EngagePilot
+git clone https://github.com/explorearafat/InstaMation.git
+cd InstaMation
 npm install
 cp .env.example .env      # then fill in the values, see SETUP.md
 docker compose -f infra/docker/docker-compose.yml up -d  # starts Postgres and Redis
@@ -152,7 +152,7 @@ npm run worker            # in a second terminal, this sends the DMs
 ```
 ### Run the published worker image in a vm
 
-The public worker image is available as 'sounogh/EngagePilot-worker'. It can be run alongside a Redis and Postgres container in Docker Compose on a VM while the web app is hosted on a seperate client. 
+The public worker image is available as 'explorearafat/InstaMation-worker'. It can be run alongside a Redis and Postgres container in Docker Compose on a VM while the web app is hosted on a seperate client. 
 
 Note: As the worker and client must connect to the same Redis and Postgres container,the VM hosting the Docker Compose will require a public External IP address,a DNS,TLS and secure connection to the client.
 
@@ -183,11 +183,11 @@ For the complete stack — application libraries, the two runtime processes, and
 ---
 ## Star History
 
-<a href="https://www.star-history.com/?repos=AmitDas4321%2FEngagePilot&type=timeline&legend=bottom-right">
+<a href="https://www.star-history.com/?repos=explorearafat%2FInstaMation&type=timeline&legend=bottom-right">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=AmitDas4321/EngagePilot&type=timeline&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=AmitDas4321/EngagePilot&type=timeline&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=AmitDas4321/EngagePilot&type=timeline&legend=top-left" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=explorearafat/InstaMation&type=timeline&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=explorearafat/InstaMation&type=timeline&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=explorearafat/InstaMation&type=timeline&legend=top-left" />
  </picture>
 </a>
 ---
@@ -201,18 +201,18 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) to get started.
 
 ## Credits
 
-Built and maintained by **Amit Das** & **Sounodip Ghosh**.
+Built and maintained by **Eyasin Arafat**.
 
-- GitHub: [@AmitDas4321](https://github.com/AmitDas4321)
-- Website: [amitdas.site](https://amitdas.site)
-- X: [@AmitDas4321](https://x.com/AmitDas4321)
-- Instagram: [@AmitDas4321](https://instagram.com/AmitDas4321)
+- GitHub: [@explorearafat](https://github.com/explorearafat)
+- Website: [github.com/explorearafat](https://github.com/explorearafat)
+- X: [@explorearafat](https://x.com/explorearafat)
+- Instagram: [@explorearafat](https://instagram.com/explorearafat)
 
 ---
 
 ## Star the repo
 
-If EngagePilot is useful to you, star it. It is the simplest way to help the project reach the next person looking for a free way to do this.
+If InstaMation is useful to you, star it. It is the simplest way to help the project reach the next person looking for a free way to do this.
 
 ---
 

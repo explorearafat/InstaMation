@@ -5,7 +5,7 @@ import Image from "next/image";
 import { MailboxIcon } from "@phosphor-icons/react/dist/ssr";
 
 export const metadata = {
-  title: "Check your email - EngagePilot",
+  title: "Check your email - InstaMation",
   description: "A sign-in link was sent to your email.",
 };
 
@@ -24,7 +24,7 @@ export default function VerifyRequestPage() {
               src="/logo3.svg"
               width={36}
               height={40}
-              alt="EngagePilot"
+              alt="InstaMation"
               unoptimized
               className="h-9 w-auto mx-auto"
             />

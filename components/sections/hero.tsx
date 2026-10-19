@@ -12,7 +12,7 @@ import {
   MetaLogoIcon,
   ArrowRightIcon,
 } from "@phosphor-icons/react/dist/ssr";
-import EngagePilotAnimation from "./Animated";
+import InstaMationAnimation from "./Animated";
 import ThemeImg from "./theme-img";
 
 export default function Hero() {
@@ -22,7 +22,7 @@ export default function Hero() {
       className="relative isolate overflow-hidden min-h-lvh mask-b-from-90% bg-background"
     >
       <div className="absolute right-45 w-100 z-20 hidden md:block">
-        <EngagePilotAnimation />
+        <InstaMationAnimation />
       </div>
       <ThemeImg />
       <div
@@ -100,7 +100,7 @@ export default function Hero() {
           </h1>
 
           <p className="mt-6 md:mt-8 max-w-xl tracking-tight font-light leading-relaxed text-primary-foreground/80 dark:text-zinc-300/90 dark:font-extralight text-base md:text-lg">
-            Someone types &quot;link pls&quot; under your post, EngagePilot
+            Someone types &quot;link pls&quot; under your post, InstaMation
             sends it to them before you&apos;ve even seen the notification. No
             monthly fee, nothing to babysit.
           </p>

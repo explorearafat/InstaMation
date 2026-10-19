@@ -6,16 +6,16 @@ substitutions:
   # Set these values once for the environment that owns this trigger.
   _REGION: "REPLACE_WITH_GCP_REGION"
   _AR_REPOSITORY: "REPLACE_WITH_ARTIFACT_REGISTRY_REPOSITORY"
-  _WORKER_POOL: "EngagePilot-worker"
+  _WORKER_POOL: "InstaMation-worker"
   _WORKER_SERVICE_ACCOUNT: "REPLACE_WITH_WORKER_RUNTIME_SERVICE_ACCOUNT"
   _WEB_BASE_URL: "https://REPLACE_WITH_YOUR_WEB_APP_DOMAIN"
 
   # The secrets must already exist in Secret Manager. Pin a numeric version in
   # production and update it here deliberately when rotating a secret.
   _SECRET_VERSION: "1"
-  _DATABASE_URL_SECRET: "EngagePilot-database-url"
-  _REDIS_URL_SECRET: "EngagePilot-redis-url"
-  _ENCRYPTION_KEY_SECRET: "EngagePilot-encryption-key"
+  _DATABASE_URL_SECRET: "InstaMation-database-url"
+  _REDIS_URL_SECRET: "InstaMation-redis-url"
+  _ENCRYPTION_KEY_SECRET: "InstaMation-encryption-key"
 
   # Optional worker tuning. These are the current application defaults.
   _META_GRAPH_API_VERSION: "v26.0"
@@ -26,14 +26,14 @@ steps:
     args:
       - build
       - --file=infra/docker/dockerfile.worker
-      - --tag=${_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_REPOSITORY}/EngagePilot-worker:$COMMIT_SHA
+      - --tag=${_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_REPOSITORY}/InstaMation-worker:$COMMIT_SHA
       - .
 
   - id: push-worker-image
     name: gcr.io/cloud-builders/docker
     args:
       - push
-      - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_REPOSITORY}/EngagePilot-worker:$COMMIT_SHA
+      - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_REPOSITORY}/InstaMation-worker:$COMMIT_SHA
 
   - id: deploy-worker-pool
     name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
@@ -44,7 +44,7 @@ steps:
       - deploy
       - ${_WORKER_POOL}
       - --region=${_REGION}
-      - --image=${_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_REPOSITORY}/EngagePilot-worker:$COMMIT_SHA
+      - --image=${_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_REPOSITORY}/InstaMation-worker:$COMMIT_SHA
       - --service-account=${_WORKER_SERVICE_ACCOUNT}
       # A worker pool does not autoscale. One instance keeps this BullMQ
       # consumer and its polling reconciler running continuously.
@@ -56,4 +56,4 @@ steps:
         --update-secrets=DATABASE_URL=${_DATABASE_URL_SECRET}:${_SECRET_VERSION},REDIS_URL=${_REDIS_URL_SECRET}:${_SECRET_VERSION},ENCRYPTION_KEY=${_ENCRYPTION_KEY_SECRET}:${_SECRET_VERSION}
 
 images:
-  - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_REPOSITORY}/EngagePilot-worker:$COMMIT_SHA
+  - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_REPOSITORY}/InstaMation-worker:$COMMIT_SHA

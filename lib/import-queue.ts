@@ -2,8 +2,8 @@
  * Shared keys and shape for the CSV import handoff. The import page stages
  * rows in localStorage, then the campaign builder consumes them one at a time.
  */
-export const IMPORT_QUEUE_KEY = "EngagePilot-import-queue";
-export const IMPORT_ACCOUNT_KEY = "EngagePilot-import-account";
+export const IMPORT_QUEUE_KEY = "InstaMation-import-queue";
+export const IMPORT_ACCOUNT_KEY = "InstaMation-import-account";
 
 export interface ImportRow {
   name: string;

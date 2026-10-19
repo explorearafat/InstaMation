@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  allowedDevOrigins: ["openinstadm.blueorbitdevs.org"],
+  allowedDevOrigins: ["openinstadm.instamation.vercel.app"],
   // Cache Components: enables `use cache`/`cacheLife` and Partial Prerendering.
   // With it, `dynamic`/`revalidate`/`fetchCache` segment configs are replaced
   // by the new caching model — data fetching is dynamic by default and the

@@ -1,4 +1,4 @@
-# GCP Worker Setup — EngagePilot
+# GCP Worker Setup — InstaMation
 
 ## 1. Requirements
 
@@ -19,7 +19,7 @@ npm install -g pm2
 Navigate to the project directory and install the dependencies:
 
 ```
-cd /root/EngagePilot
+cd /root/InstaMation
 npm ci
 npx prisma generate
 ```
@@ -42,10 +42,10 @@ Create a file named `worker.config.cjs` in the project root:
 module.exports = {
   apps: [
     {
-      name: "EngagePilot-Worker",
+      name: "InstaMation-Worker",
       script: "node_modules/tsx/dist/cli.mjs",
       args: "worker/dm-worker.ts",
-      cwd: "/root/EngagePilot",
+      cwd: "/root/InstaMation",
       interpreter: "node",
       instances: 1,
       exec_mode: "fork",
@@ -74,7 +74,7 @@ pm2 status
 View the worker logs:
 
 ```
-pm2 logs EngagePilot-Worker --lines 30
+pm2 logs InstaMation-Worker --lines 30
 ```
 
 Clear existing PM2 logs:
@@ -86,13 +86,13 @@ pm2 flush
 ## 8. Restart the Worker
 
 ```
-pm2 restart EngagePilot-Worker
+pm2 restart InstaMation-Worker
 ```
 
 ## 9. Stop the Worker
 
 ```
-pm2 stop EngagePilot-Worker
+pm2 stop InstaMation-Worker
 ```
 
 ## 10. Important Notes

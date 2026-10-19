@@ -168,7 +168,7 @@ export default function SeoPageShell({ config }: { config: SeoPageConfig }) {
               <div className="px-5 py-3">Need</div>
               <div className="px-5 py-3 flex items-center gap-2">
                 <span className="size-2 rounded-full bg-primary" />
-                EngagePilot
+                InstaMation
               </div>
               <div className="px-5 py-3">Generic automation</div>
             </div>
@@ -286,7 +286,7 @@ export default function SeoPageShell({ config }: { config: SeoPageConfig }) {
                 comment into a private reply
               </h2>
               <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-zinc-400 sm:text-base">
-                EngagePilot is built for Instagram professional accounts,
+                InstaMation is built for Instagram professional accounts,
                 official Meta private replies, and campaign reporting teams can
                 show clients.
               </p>
@@ -301,7 +301,7 @@ export default function SeoPageShell({ config }: { config: SeoPageConfig }) {
                   Start free <ArrowRightIcon className="ml-1 size-4" weight="bold" />
                 </Link>
                 <a
-                  href="https://github.com/AmitDas4321/EngagePilot"
+                  href="https://github.com/explorearafat/InstaMation"
                   target="_blank"
                   rel="noreferrer"
                   className={cn(

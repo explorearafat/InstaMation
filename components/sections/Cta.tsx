@@ -49,7 +49,7 @@ const Cta = () => {
           </Link>
 
           <a
-            href="https://github.com/AmitDas4321/EngagePilot"
+            href="https://github.com/explorearafat/InstaMation"
             target="_blank"
             rel="noreferrer"
             className={cn(

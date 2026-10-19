@@ -1,10 +1,10 @@
-# EngagePilot Master Task Checklist
+# InstaMation Master Task Checklist
 
 > Status reviewed: 2026-09-09. Completed items below reflect the current
 > implementation; unchecked items still require code changes or production
 > validation.
 
-This checklist tracks all ongoing bugs, optimizations, setup items, and new feature roadmap items for **EngagePilot**.
+This checklist tracks all ongoing bugs, optimizations, setup items, and new feature roadmap items for **InstaMation**.
 
 ## 🐛 2. Bugs & Edge Case Fixes
 

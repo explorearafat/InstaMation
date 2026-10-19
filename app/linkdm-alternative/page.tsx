@@ -5,7 +5,7 @@ import { linkdmAlternativePage } from "@/lib/seo-pages";
 export const metadata: Metadata = {
   title: "LinkDM Alternative — Open-Source Instagram Comment-to-DM",
   description:
-    "EngagePilot is the open-source LinkDM alternative: keyword comments trigger tracked private replies via the official Meta API. Self-hostable, no per-DM markups.",
+    "InstaMation is the open-source LinkDM alternative: keyword comments trigger tracked private replies via the official Meta API. Self-hostable, no per-DM markups.",
   alternates: { canonical: "/linkdm-alternative" },
   openGraph: {
     title: "LinkDM Alternative — Open-Source Instagram Comment-to-DM",

@@ -342,7 +342,7 @@ export default function Testimonials() {
             eyebrow="Loved by creators"
             title="Built for anyone who"
             accent="turns comments into growth"
-            description="From solo creators to agencies managing a dozen clients — see how EngagePilot replaces manual DMs and expensive tools."
+            description="From solo creators to agencies managing a dozen clients — see how InstaMation replaces manual DMs and expensive tools."
           />
         </div>
         <div className="relative pb-14">
@@ -370,7 +370,7 @@ export default function Testimonials() {
           eyebrow="Loved by creators"
           title="Built for anyone who"
           accent="turns comments into growth"
-          description="From solo creators to agencies managing a dozen clients — see how EngagePilot replaces manual DMs and expensive tools."
+          description="From solo creators to agencies managing a dozen clients — see how InstaMation replaces manual DMs and expensive tools."
         />
       </div>
 

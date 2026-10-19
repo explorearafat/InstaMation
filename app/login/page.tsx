@@ -4,7 +4,7 @@ import { getCampaignTemplate } from "@/lib/templates/campaign-templates";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
-import amitImage from "@/assets/amit.webp";
+import arafatImage from "@/assets/arafat.webp";
 import Image from "next/image";
 import {
   ArrowRightIcon,
@@ -15,7 +15,7 @@ import {
 import { FlickeringGrid } from "@/components/ui/flickering-grid";
 
 export const metadata = {
-  title: "Sign in - EngagePilot",
+  title: "Sign in - InstaMation",
   description: "Sign in to manage Instagram comment-to-DM campaigns.",
 };
 
@@ -132,7 +132,7 @@ async function LoginContent({ searchParams }: { searchParams: LoginSearchParams 
               src="/logo3.svg"
               width={36}
               height={40}
-              alt="EngagePilot"
+              alt="InstaMation"
               unoptimized
               className="h-9 w-auto"
             />
@@ -310,7 +310,7 @@ async function LoginContent({ searchParams }: { searchParams: LoginSearchParams 
 
           {/* Quote */}
           <blockquote className="text-xl md:text-2xl font-medium leading-snug tracking-tight">
-            &ldquo;EngagePilot works so well that we were able to automate our
+            &ldquo;InstaMation works so well that we were able to automate our
             Comment-to-DM workflow in just a few hours! Bye bye expensive
             manychat!&rdquo;
           </blockquote>
@@ -319,8 +319,8 @@ async function LoginContent({ searchParams }: { searchParams: LoginSearchParams 
           <div className="mt-8 flex items-center gap-3">
             <div className="size-10 shrink-0 overflow-hidden rounded-full">
               <Image
-                src={amitImage}
-                alt="Amit Das"
+                src={arafatImage}
+                alt="Eyasin Arafat"
                 width={40}
                 height={40}
                 className="size-full object-cover"
@@ -328,8 +328,8 @@ async function LoginContent({ searchParams }: { searchParams: LoginSearchParams 
             </div>
 
             <div>
-              <p className="text-sm">Amit Das</p>
-              <p className="text-xs font-light">Founder @AmitDas4321</p>
+              <p className="text-sm">Eyasin Arafat</p>
+              <p className="text-xs font-light">Founder @explorearafat</p>
             </div>
           </div>
 

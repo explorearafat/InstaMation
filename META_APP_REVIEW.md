@@ -1,6 +1,6 @@
 # Meta App Review notes
 
-You only need App Review if you want people who are not testers on your app to connect their own Instagram accounts. If you run EngagePilot for your own accounts, skip this. See the "Letting other people use your instance" section of [docs/setup.md](docs/setup.md).
+You only need App Review if you want people who are not testers on your app to connect their own Instagram accounts. If you run InstaMation for your own accounts, skip this. See the "Letting other people use your instance" section of [docs/setup.md](docs/setup.md).
 
 ## Multiple Instagram accounts (one app, no extra env vars)
 
@@ -12,7 +12,7 @@ You only need App Review if you want people who are not testers on your app to c
 - **Live without review:** anyone can attempt OAuth, but API calls for non-testers still fail until the app has **Advanced Access** (review approved + business verification). Flipping to Live alone fixes nothing for external users.
 - Keep **Development** while building or when every connected account is your own. Go **Live** only when serving external users after review.
 
-EngagePilot uses the official Instagram API to send a private reply to someone who comments on a connected professional account's post or reel.
+InstaMation uses the official Instagram API to send a private reply to someone who comments on a connected professional account's post or reel.
 
 ## Permissions to request
 
@@ -53,4 +53,4 @@ Reviewers want to see the permission produce a real result for a real user. This
 
 ## Business verification
 
-Meta usually requires business verification before granting Advanced Access. It asks for a document proving a legal entity: a business registration or license, articles of incorporation, a business tax document, or a business bank statement. If you do not have a registered business, you cannot complete this step, and the practical path is to run EngagePilot for your own accounts instead, which never needs review.
+Meta usually requires business verification before granting Advanced Access. It asks for a document proving a legal entity: a business registration or license, articles of incorporation, a business tax document, or a business bank statement. If you do not have a registered business, you cannot complete this step, and the practical path is to run InstaMation for your own accounts instead, which never needs review.

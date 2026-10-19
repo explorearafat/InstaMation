@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: "EngagePilot-Worker",
+      name: "InstaMation-Worker",
       script: "node_modules/tsx/dist/cli.mjs",
       args: "worker/dm-worker.ts",
       cwd: __dirname,

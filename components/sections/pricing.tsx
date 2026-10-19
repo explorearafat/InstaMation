@@ -17,7 +17,7 @@ import {
 } from "@/lib/geo-pricing";
 import { SectionHeading } from "@/components/ui/section-heading";
 
-const SETUP_EMAIL = "support@blueorbitdevs.org";
+const SETUP_EMAIL = "support@instamation.vercel.app";
 
 function Check() {
   return (
@@ -257,7 +257,7 @@ export default function Pricing({
             Prefer to email?
           </p>
           <a
-            href={`mailto:${SETUP_EMAIL}?subject=${encodeURIComponent("Question about EngagePilot setup")}`}
+            href={`mailto:${SETUP_EMAIL}?subject=${encodeURIComponent("Question about InstaMation setup")}`}
             className="inline-flex h-11 shrink-0 items-center gap-2 rounded-xl border border-border bg-card px-6 text-[15px] font-semibold text-foreground transition-all hover:-translate-y-px hover:bg-muted"
           >
             <EnvelopeSimpleIcon weight="duotone" className="size-4" />

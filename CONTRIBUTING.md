@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for wanting to help. EngagePilot is public so the comment-to-DM engine is something you can read, run yourself, and improve.
+Thanks for wanting to help. InstaMation is public so the comment-to-DM engine is something you can read, run yourself, and improve.
 
 ## Ways to help
 

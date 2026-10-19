@@ -12,7 +12,7 @@
 
 import type { Persister, PersistedClient } from "@tanstack/query-persist-client-core";
 
-const DB_NAME = "EngagePilot-query";
+const DB_NAME = "InstaMation-query";
 const STORE = "queries";
 const KEY = "react-query-cache";
 const VERSION = 1;

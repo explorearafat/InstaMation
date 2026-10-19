@@ -4,7 +4,7 @@
 module.exports = {
   apps: [
     {
-      name: "EngagePilot",
+      name: "InstaMation",
       script: "node_modules/next/dist/bin/next",
       args: "start",
       cwd: __dirname,
@@ -19,7 +19,7 @@ module.exports = {
       },
     },
     {
-      name: "EngagePilot-Worker",
+      name: "InstaMation-Worker",
       script: "node_modules/tsx/dist/cli.mjs",
       args: "worker/dm-worker.ts",
       cwd: __dirname,

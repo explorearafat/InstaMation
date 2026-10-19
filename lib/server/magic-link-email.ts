@@ -25,7 +25,7 @@ export async function sendVerificationRequest(params: {
     return;
   }
 
-  const from = provider.from ?? "EngagePilot <login@example.com>";
+  const from = provider.from ?? "InstaMation <login@example.com>";
 
   const html = buildHtml({ url, host });
   const text = buildText({ url, host });
@@ -101,7 +101,7 @@ function buildHtml(params: { url: string; host: string }) {
                     <span style="display:block;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:15px;font-weight:800;letter-spacing:-0.04em;color:#ffffff;line-height:36px;">O</span>
                   </td>
                   <td style="padding-left:10px;vertical-align:middle;">
-                    <span style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13.5px;font-weight:700;letter-spacing:-0.02em;color:#0f172a;">EngagePilot</span>
+                    <span style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13.5px;font-weight:700;letter-spacing:-0.02em;color:#0f172a;">InstaMation</span>
                     <span style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.04em;color:#94a3b8;margin-left:8px;vertical-align:middle;">SIGN IN</span>
                   </td>
                 </tr>
@@ -178,7 +178,7 @@ function buildHtml(params: { url: string; host: string }) {
           <tr>
             <td style="padding:22px 8px 0;text-align:center;">
               <p style="margin:0 0 6px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:11px;line-height:1.6;color:#94a3b8;">
-                Sent by <span style="color:#64748b;font-weight:600;">EngagePilot</span> — Instagram comment-to-DM automation
+                Sent by <span style="color:#64748b;font-weight:600;">InstaMation</span> — Instagram comment-to-DM automation
               </p>
               <p style="margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:11px;line-height:1.6;color:#cbd5e1;">
                 This is an automated message, please do not reply.
@@ -208,6 +208,6 @@ function buildText(params: { url: string; host: string }) {
     ``,
     `If you didn't request this email you can safely ignore it.`,
     ``,
-    `— EngagePilot`,
+    `— InstaMation`,
   ].join("\n");
 }

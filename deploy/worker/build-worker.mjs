@@ -29,7 +29,7 @@ const require = __createRequire(import.meta.url);
   // Resolve the project's @/* imports without requiring tsx at runtime.
   plugins: [
     {
-      name: "EngagePilot-root-alias",
+      name: "InstaMation-root-alias",
       setup(buildContext) {
         buildContext.onResolve({ filter: /^@\// }, (args) =>
           buildContext.resolve(`./${args.path.slice(2)}`, {

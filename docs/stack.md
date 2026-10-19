@@ -1,6 +1,6 @@
 # Stack
 
-Everything EngagePilot needs to run: the application libraries, the web and
+Everything InstaMation needs to run: the application libraries, the web and
 worker processes, the shared data services, and the deployment pieces. For
 step-by-step setup instructions, see [SETUP.md](../SETUP.md).
 

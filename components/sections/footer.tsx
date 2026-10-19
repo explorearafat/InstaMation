@@ -6,7 +6,7 @@ import {
   InstagramLogoIcon,
 } from "@phosphor-icons/react/dist/ssr";
 
-const GITHUB_URL = "https://github.com/AmitDas4321/EngagePilot";
+const GITHUB_URL = "https://github.com/explorearafat/InstaMation";
 
 const footerLinks = {
   Product: [
@@ -21,11 +21,11 @@ const footerLinks = {
     { label: "Diagnostics", href: "/docs#diagnostics" },
     {
       label: "Dev.to Article",
-      href: "https://dev.to/amitdas4321/a-free-manychat-alternative-for-instagram-creators-we-built-it-open-source-free-jca",
+      href: "https://dev.to/explorearafat/a-free-manychat-alternative-for-instagram-creators-we-built-it-open-source-free-jca",
     },
     {
-      label: "AmitDas Blog",
-      href: "https://amitdas.site/blog/one-of-the-best-open-source-instagram-dm-automation-tools-engagepilot-is-it-worth-a-try-133",
+      label: "Eyasin Arafat Blog",
+      href: "https://github.com/explorearafat/InstaMation",
     },
     {
       label: "Instagram Post",
@@ -77,18 +77,18 @@ export default function Footer() {
             <Link
               href="/"
               className="inline-flex items-center gap-2"
-              aria-label="EngagePilot home"
+              aria-label="InstaMation home"
             >
               <Image
                 src="/logo1.svg"
-                alt="EngagePilot logo"
+                alt="InstaMation logo"
                 width={28}
                 height={28}
                 unoptimized
                 className="size-7 transition-all duration-300 dark:invert-0 invert"
               />
               <span className="text-base font-bold tracking-tight text-foreground">
-                EngagePilot
+                InstaMation
               </span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
@@ -107,7 +107,7 @@ export default function Footer() {
                 GitHub
               </a>
               <a
-                href={"https://www.instagram.com/BlueOrbitDevs"}
+                href={"https://www.instagram.com/explorearafat"}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-lg bg-linear-to-bl from-pink-600 via-red-500 to-yellow-400 px-3 py-1.5 text-sm font-semibold tracking-tight text-white"
@@ -142,7 +142,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col items-center justify-between gap-4 border-t border-border py-6 sm:flex-row">
           <p className="text-xs text-muted-foreground">
-            &copy; 2026 EngagePilot. Open source under the MIT License.
+            &copy; 2026 InstaMation. Open source under the MIT License.
           </p>
           <p className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
             Built with{" "}
@@ -156,7 +156,7 @@ export default function Footer() {
         </div>
 
         <div className="flex items-center justify-center font-bold tracking-[-9%] text-[clamp(3rem,18vw,18rem)] leading-none bg-clip-text text-transparent bg-linear-to-b from-foreground to-transparent absolute left-1/2 -translate-x-1/2 opacity-60 pointer-events-none">
-          EngagePilot
+          InstaMation
         </div>
       </div>
     </footer>

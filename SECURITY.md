@@ -1,6 +1,6 @@
 # Security policy
 
-EngagePilot handles Instagram access tokens, webhook payloads, and campaign data. Please report security issues responsibly.
+InstaMation handles Instagram access tokens, webhook payloads, and campaign data. Please report security issues responsibly.
 
 ## Supported versions
 

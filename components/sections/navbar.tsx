@@ -5,12 +5,12 @@ import { GithubLogoIcon } from "@phosphor-icons/react/dist/ssr";
 import { buttonVariants } from "../ui/button";
 import { cn, formatStars } from "@/lib/utils";
 
-const GITHUB_URL = "https://github.com/AmitDas4321/EngagePilot";
+const GITHUB_URL = "https://github.com/explorearafat/InstaMation";
 
 async function getGitHubStars(): Promise<number | null> {
   try {
     const res = await fetch(
-      "https://api.github.com/repos/AmitDas4321/EngagePilot",
+      "https://api.github.com/repos/explorearafat/InstaMation",
       {
         headers: { Accept: "application/vnd.github+json" },
         next: { revalidate: 36000 },
@@ -35,18 +35,18 @@ const Navbar = async () => {
         <Link
           href="/"
           className="flex items-center gap-2"
-          aria-label="EngagePilot home"
+          aria-label="InstaMation home"
         >
           <Image
             src="/logo1.svg"
-            alt="EngagePilot logo"
+            alt="InstaMation logo"
             width={32}
             height={32}
             unoptimized
             className="size-5 sm:size-8 transition-all duration-300 dark:invert-0 invert shimmer"
           />
           <span className="text-sm md:text-lg font-bold tracking-tight text-foreground">
-            EngagePilot
+            InstaMation
           </span>
         </Link>
 
@@ -57,7 +57,7 @@ const Navbar = async () => {
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-xs sm:text-sm font-medium text-foreground transition-colors hover:bg-muted"
-            aria-label="View EngagePilot on GitHub"
+            aria-label="View InstaMation on GitHub"
           >
             <GithubLogoIcon
               weight="fill"

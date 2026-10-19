@@ -4,7 +4,7 @@ import { ArrowLeftIcon, HouseIcon } from "@phosphor-icons/react/dist/ssr";
 import { Button } from "@/components/ui/button";
 
 export const metadata = {
-  title: "Page not found - EngagePilot",
+  title: "Page not found - InstaMation",
   description: "The page you're looking for doesn't exist.",
 };
 
@@ -19,7 +19,7 @@ export default function NotFoundPage() {
               src="/logo3.svg"
               width={36}
               height={40}
-              alt="EngagePilot"
+              alt="InstaMation"
               unoptimized
               className="h-9 w-auto mx-auto"
             />

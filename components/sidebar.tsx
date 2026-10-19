@@ -123,20 +123,20 @@ export default function AppSidebar({
           <SidebarMenuItem>
             <SidebarMenuButton
               size="lg"
-              tooltip="EngagePilot"
+              tooltip="InstaMation"
               render={<Link href="/dashboard" />}
             >
               <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground overflow-hidden">
                 <Image
                   src="/logo2.svg"
-                  alt="EngagePilot"
+                  alt="InstaMation"
                   width={20}
                   height={20}
                   unoptimized
                 />
               </span>
               <span className="grid flex-1 text-left text-sm leading-tight truncate md:text-lg tracking-tight font-medium">
-                EngagePilot
+                InstaMation
               </span>
             </SidebarMenuButton>
           </SidebarMenuItem>

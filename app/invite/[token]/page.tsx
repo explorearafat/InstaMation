@@ -17,7 +17,7 @@ type InvitePageProps = {
 };
 
 export const metadata: Metadata = {
-  title: "Accept Workspace Invitation - EngagePilot",
+  title: "Accept Workspace Invitation - InstaMation",
   robots: { index: false, follow: false },
 };
 
@@ -39,7 +39,7 @@ function InviteShell({ children }: { children: React.ReactNode }) {
             href="/"
             className="text-2xl font-semibold text-foreground transition-opacity hover:opacity-80"
           >
-            EngagePilot
+            InstaMation
           </Link>
         </div>
         <Card>

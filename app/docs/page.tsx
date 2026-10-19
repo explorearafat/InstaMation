@@ -28,9 +28,9 @@ import Navbar from "@/components/sections/navbar";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Setup Guide — EngagePilot Docs",
+  title: "Setup Guide — InstaMation Docs",
   description:
-    "Beginner-friendly, step-by-step setup guide for EngagePilot. From secrets and local Postgres & Redis to Meta webhooks, tunnelling, and production on Vercel + Railway.",
+    "Beginner-friendly, step-by-step setup guide for InstaMation. From secrets and local Postgres & Redis to Meta webhooks, tunnelling, and production on Vercel + Railway.",
 };
 
 const toc = [
@@ -94,7 +94,7 @@ export default function DocsPage() {
           <div className="mt-6 grid gap-8 lg:grid-cols-[1.35fr_0.75fr] lg:items-end">
             <div>
               <h1 className="text-balance text-4xl font-black leading-[0.95] tracking-tighter text-foreground sm:text-5xl lg:text-[3.6rem]">
-                Set up EngagePilot
+                Set up InstaMation
                 <span className="block font-light tracking-tighter text-muted-foreground">
                   step by step.
                 </span>
@@ -117,7 +117,7 @@ export default function DocsPage() {
                   Start setup <ArrowRight weight="bold" className="size-4" />
                 </a>
                 <a
-                  href="https://github.com/AmitDas4321/EngagePilot"
+                  href="https://github.com/explorearafat/InstaMation"
                   target="_blank"
                   rel="noreferrer"
                   className={cn(
@@ -250,7 +250,7 @@ export default function DocsPage() {
                   issue on GitHub.
                 </p>
                 <Link
-                  href="https://github.com/AmitDas4321/EngagePilot/issues"
+                  href="https://github.com/explorearafat/InstaMation/issues"
                   target="_blank"
                   className={cn(
                     buttonVariants({ variant: "outline", size: "sm" }),
@@ -283,7 +283,7 @@ export default function DocsPage() {
           <section id="overview" className="scroll-mt-24">
             <SectionLabel icon={BookOpen}>Start here</SectionLabel>
             <h2 className="mt-3 text-2xl font-bold tracking-tight sm:text-3xl">
-              How EngagePilot works
+              How InstaMation works
             </h2>
             <p className="mt-3 max-w-3xl text-sm leading-6 text-muted-foreground sm:text-base">
               Someone comments a keyword like <InlineCode>LINK</InlineCode> on
@@ -496,8 +496,8 @@ openssl rand -hex 16`}
                 </h3>
                 <CodeBlock
                   lang="bash"
-                  code={`git clone https://github.com/AmitDas4321/EngagePilot.git
-cd EngagePilot
+                  code={`git clone https://github.com/explorearafat/InstaMation.git
+cd InstaMation
 npm install`}
                   className="mt-3"
                 />
@@ -529,11 +529,11 @@ CRON_SECRET=<output of step 1 — #2>
 ENCRYPTION_KEY=<output of step 1 — #3 — 64 hex chars>
 WEBHOOK_VERIFY_TOKEN=<output of step 1 — #4>
 
-DATABASE_URL=postgresql://postgres:postgres@localhost:5432/EngagePilot
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/InstaMation
 REDIS_URL=redis://localhost:6379
 
 RESEND_API_KEY=re_xxx
-EMAIL_FROM="EngagePilot <login@yourdomain.com>"
+EMAIL_FROM="InstaMation <login@yourdomain.com>"
 
 # you’ll add these in Step 4
 INSTAGRAM_APP_ID=
@@ -577,7 +577,7 @@ META_GRAPH_API_VERSION=v26.0`}
 brew services start postgresql@16
 redis-server --daemonize yes
 
-createdb EngagePilot
+createdb InstaMation
 psql -c "ALTER USER postgres PASSWORD 'postgres';" `}
                     />
                     <CodeBlock
@@ -587,13 +587,13 @@ psql -c "ALTER USER postgres PASSWORD 'postgres';" `}
 sudo systemctl start postgresql
 redis-server --daemonize yes
 
-sudo -u postgres createdb EngagePilot
+sudo -u postgres createdb InstaMation
 sudo -u postgres psql -c "ALTER USER postgres PASSWORD 'postgres';" `}
                     />
                     <p className="text-xs text-muted-foreground">
                       Keep the shipped <InlineCode>.env</InlineCode> values:{" "}
                       <InlineCode>
-                        postgresql://postgres:postgres@localhost:5432/EngagePilot
+                        postgresql://postgres:postgres@localhost:5432/InstaMation
                       </InlineCode>{" "}
                       and <InlineCode>redis://localhost:6379</InlineCode>.
                     </p>
@@ -681,7 +681,7 @@ npm run db:migrate    # applies prisma/migrations to your DB`}
                 <p className="mt-2 text-xs text-muted-foreground">
                   No Docker? Reset with{" "}
                   <InlineCode>
-                    dropdb EngagePilot && createdb EngagePilot
+                    dropdb InstaMation && createdb InstaMation
                   </InlineCode>{" "}
                   then re-run the two commands.
                 </p>
@@ -763,13 +763,13 @@ chmod +x cloudflared && sudo mv cloudflared /usr/local/bin/
                     <CodeBlock
                       lang="bash"
                       code={`cloudflared login
-cloudflared tunnel create engagepilot
-cloudflared tunnel route dns engagepilot dev.yourdomain.com`}
+cloudflared tunnel create instamation
+cloudflared tunnel route dns instamation dev.yourdomain.com`}
                     />
                     <CodeBlock
                       title="~/.cloudflared/config.yml"
                       lang="yaml"
-                      code={`tunnel: engagepilot
+                      code={`tunnel: instamation
 credentials-file: /home/<you>/.cloudflared/<tunnel-id>.json
 ingress:
   - hostname: dev.yourdomain.com
@@ -778,7 +778,7 @@ ingress:
                     />
                     <CodeBlock
                       lang="bash"
-                      code={`cloudflared tunnel run engagepilot`}
+                      code={`cloudflared tunnel run instamation`}
                     />
                     <CodeBlock
                       lang="env"
@@ -1094,7 +1094,7 @@ META_GRAPH_API_VERSION=v26.0`}
               </p>
             </div>
             <h2 className="mt-3 text-2xl font-bold tracking-tight sm:text-3xl">
-              Start EngagePilot
+              Start InstaMation
             </h2>
             <p className="mt-3 text-sm leading-6 text-muted-foreground">
               You need{" "}
@@ -1455,7 +1455,7 @@ REDIS_URL=redis://default:xxx@redis.proxy.rlwy.net:1234`}
                       [
                         "EMAIL_FROM",
                         "Yes",
-                        "EngagePilot <login@yourdomain.com>",
+                        "InstaMation <login@yourdomain.com>",
                       ],
                       [
                         "INSTAGRAM_APP_ID",

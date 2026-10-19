@@ -9,7 +9,7 @@ import Clarity from "@/components/Clarity";
 import { funnelSans } from "@/lib/fonts";
 
 export const metadata: Metadata = {
-  title: "EngagePilot - Open source Instagram comment-to-DM automation",
+  title: "InstaMation - Open source Instagram comment-to-DM automation",
   description:
     "A free, self-hosted ManyChat alternative. Send an Instagram DM automatically when someone comments a keyword on your post or reel, using the official Meta API.",
   keywords: [
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "social media marketing",
     "manychat alternative",
   ],
-  metadataBase: new URL("https://engagepilot.blueorbitdevs.org"),
+  metadataBase: new URL("https://instamation.instamation.vercel.app"),
 };
 
 export default function RootLayout({
@@ -34,7 +34,7 @@ export default function RootLayout({
           name="google-site-verification"
           content="1ywEvz4B5lYEEfkF2hEWRlDFzCAVq-5_Qb37AgpM7Wg"
         />
-        <meta name="apple-mobile-web-app-title" content="EngagePilot" />
+        <meta name="apple-mobile-web-app-title" content="InstaMation" />
         {/* {process.env.NODE_ENV === "development" && (
           <Script
             src="//unpkg.com/react-scan/dist/auto.global.js"

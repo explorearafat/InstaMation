@@ -20,7 +20,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 
 const faqs = [
   {
-    question: "What exactly does EngagePilot do?",
+    question: "What exactly does InstaMation do?",
     answer:
       "Someone comments your keyword (like \u201cLINK\u201d) on a post or reel, and a second later they get a DM with your link \u2014 through Meta's official private replies API. You can also post a public comment reply at the same time, and personalize the message with {username}.",
     icon: <ChatCircleDotsIcon weight="duotone" className="size-4" />,
@@ -34,7 +34,7 @@ const faqs = [
   {
     question: "Is this safe for my Instagram account?",
     answer:
-      "Yes. EngagePilot is built entirely around Meta's official Instagram API with Instagram Login. It does not scrape, it does not automate a browser, and it never asks for your Instagram password. Private replies are the sanctioned way to DM from a comment, which keeps you inside Meta's rules.",
+      "Yes. InstaMation is built entirely around Meta's official Instagram API with Instagram Login. It does not scrape, it does not automate a browser, and it never asks for your Instagram password. Private replies are the sanctioned way to DM from a comment, which keeps you inside Meta's rules.",
     icon: <LockKeyIcon weight="duotone" className="size-4" />,
   },
   {
@@ -98,7 +98,7 @@ export default function Faq() {
                 <BookOpenIcon className="ml-2 size-4" weight="bold" />
               </Link>
               <a
-                href="https://github.com/AmitDas4321/EngagePilot"
+                href="https://github.com/explorearafat/InstaMation"
                 target="_blank"
                 rel="noreferrer"
                 className={cn(

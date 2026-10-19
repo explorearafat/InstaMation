@@ -1,8 +1,8 @@
-# 🚀 EngagePilot Setup Guide
+# 🚀 InstaMation Setup Guide
 
-Welcome to EngagePilot! This guide is designed for absolute beginners to help you set up and run EngagePilot locally and in production.
+Welcome to InstaMation! This guide is designed for absolute beginners to help you set up and run InstaMation locally and in production.
 
-EngagePilot consists of **two parts** that must run at the same time:
+InstaMation consists of **two parts** that must run at the same time:
 
 1. **The Web App** (Next.js): Renders the dashboard, takes care of logins, and receives webhooks from Instagram.
 2. **The Worker** (BullMQ): A background process that listens to incoming comments/DMs, checks rate limits, and sends the replies.
@@ -46,8 +46,8 @@ openssl rand -hex 16
 1. **Clone the repository and install dependencies**:
 
    ```bash
-   git clone https://github.com/AmitDas4321/EngagePilot.git
-   cd EngagePilot
+   git clone https://github.com/explorearafat/InstaMation.git
+   cd InstaMation
    npm install
    ```
 
@@ -86,14 +86,14 @@ openssl rand -hex 16
    Create the database and a user matching `.env.example`:
 
    ```bash
-   createdb EngagePilot
+   createdb InstaMation
    psql -c "ALTER USER postgres PASSWORD 'postgres';"
    ```
 
    Your `.env` stays as shipped:
 
    ```env
-   DATABASE_URL=postgresql://postgres:postgres@localhost:5432/EngagePilot
+   DATABASE_URL=postgresql://postgres:postgres@localhost:5432/InstaMation
    REDIS_URL=redis://localhost:6379
    ```
 
@@ -133,7 +133,7 @@ openssl rand -hex 16
    ```
 
    - `db:generate` generates the Prisma client from `prisma/schema.prisma`.
-   - `db:migrate` applies the migration files in `prisma/migrations/` to the database (the `EngagePilot` database created by the container).
+   - `db:migrate` applies the migration files in `prisma/migrations/` to the database (the `InstaMation` database created by the container).
 
    **To reset everything later** (stop containers, delete all DB/queue data, start fresh):
 
@@ -146,7 +146,7 @@ openssl rand -hex 16
    No Docker? Reset your local Postgres/Redis by dropping the database and re-creating it:
 
    ```bash
-   dropdb EngagePilot && createdb EngagePilot
+   dropdb InstaMation && createdb InstaMation
    npm run db:generate && npm run db:migrate
    ```
 
@@ -210,7 +210,7 @@ Requires a free Cloudflare account. Gives you a **stable, named domain** (`*.try
 2. **Create the tunnel** (only once):
 
    ```bash
-   cloudflared tunnel create engagepilot
+   cloudflared tunnel create instamation
    ```
 
    Note the **Tunnel ID** printed in the output.
@@ -218,13 +218,13 @@ Requires a free Cloudflare account. Gives you a **stable, named domain** (`*.try
 3. **Create a DNS record** (only once):
 
    ```bash
-   cloudflared tunnel route dns engagepilot dev.yourdomain.com
+   cloudflared tunnel route dns instamation dev.yourdomain.com
    ```
 
 4. **Create a config file** at `~/.cloudflared/config.yml`:
 
    ```yaml
-   tunnel: engagepilot
+   tunnel: instamation
    credentials-file: /home/<your-user>/.cloudflared/<tunnel-id>.json
 
    ingress:
@@ -236,7 +236,7 @@ Requires a free Cloudflare account. Gives you a **stable, named domain** (`*.try
 5. **Start the tunnel**:
 
    ```bash
-   cloudflared tunnel run engagepilot
+   cloudflared tunnel run instamation
    ```
 
 6. **Update `.env`**:
@@ -381,7 +381,7 @@ Meta apps in Development mode only allow authorized test accounts to connect.
 
 ---
 
-## 🏃‍♂️ Step 5: Start EngagePilot
+## 🏃‍♂️ Step 5: Start InstaMation
 
 You must start two processes in separate terminal windows:
 
@@ -443,7 +443,7 @@ DATABASE_URL="postgresql://postgres:password@your-railway-proxy.rlwy.net:5432/ra
 This option is useful when the web app is deployed on Vercel, Postgres is hosted on Neon, and you want a long-running worker plus Redis on your own VM. It uses the public Docker Hub image:
 
 ```text
-sounogh/EngagePilot-worker:latest
+explorearafat/InstaMation-worker:latest
 ```
 
 The image is public, so `docker login` is not required. Prefer an immutable release tag when one is available instead of continuously following `latest`.
@@ -455,14 +455,14 @@ Use a Linux VM with a reserved public IP and Docker Engine with the Compose plug
 Create a directory that contains only deployment configuration and secrets; a source-code checkout is not required on this VM:
 
 ```bash
-sudo install -d -m 700 -o "$USER" -g "$USER" /opt/EngagePilot/redis
-cd /opt/EngagePilot
+sudo install -d -m 700 -o "$USER" -g "$USER" /opt/InstaMation/redis
+cd /opt/InstaMation
 ```
 
 Create `.env` for Compose interpolation. Generate a URL-safe Redis password with `openssl rand -hex 32` and use the result below:
 
 ```dotenv
-WORKER_IMAGE=sounogh/EngagePilot-worker:latest
+WORKER_IMAGE=explorearafat/InstaMation-worker:latest
 REDIS_PASSWORD=replace-with-a-long-random-hex-password
 ```
 
@@ -487,7 +487,7 @@ Create `redis/users.acl`. The password after `>` must exactly match `REDIS_PASSW
 
 ```text
 user default off
-user EngagePilot on >replace-with-a-long-random-hex-password ~* &* +@all -@dangerous +info
+user InstaMation on >replace-with-a-long-random-hex-password ~* &* +@all -@dangerous +info
 ```
 
 `+info` is intentional: ioredis uses Redis's `INFO` command for its readiness check. Without it, the worker repeatedly logs a `NOPERM ... info` error.
@@ -502,10 +502,10 @@ sudo chmod 600 redis/users.acl
 
 #### 3. Create the Compose file
 
-Create `compose.yaml` in `/opt/EngagePilot`:
+Create `compose.yaml` in `/opt/InstaMation`:
 
 ```yaml
-name: EngagePilot
+name: InstaMation
 
 services:
   redis:
@@ -526,19 +526,19 @@ services:
       - redis-data:/data
       - ./redis/users.acl:/usr/local/etc/redis/users.acl:ro
     healthcheck:
-      test: ["CMD-SHELL", "redis-cli --user EngagePilot --pass \"$$REDIS_PASSWORD\" ping"]
+      test: ["CMD-SHELL", "redis-cli --user InstaMation --pass \"$$REDIS_PASSWORD\" ping"]
       interval: 5s
       timeout: 5s
       retries: 10
     restart: unless-stopped
 
   worker:
-    image: ${WORKER_IMAGE:-sounogh/EngagePilot-worker:latest}
+    image: ${WORKER_IMAGE:-explorearafat/InstaMation-worker:latest}
     env_file:
       - .env.worker
     environment:
       WORKER: "true"
-      REDIS_URL: redis://EngagePilot:${REDIS_PASSWORD:?Set REDIS_PASSWORD in .env}@redis:6379
+      REDIS_URL: redis://InstaMation:${REDIS_PASSWORD:?Set REDIS_PASSWORD in .env}@redis:6379
     depends_on:
       redis:
         condition: service_healthy
@@ -594,7 +594,7 @@ Skip this subsection if Vercel uses managed Redis instead. If Vercel is to enque
 
    Keep port `80` reachable when using this renewal method, or use your DNS provider's Certbot plugin instead. Do not use a Cloudflare Origin Certificate: Vercel connects directly and requires a publicly trusted certificate.
 
-3. Create the HAProxy configuration at `/opt/EngagePilot/haproxy.cfg`:
+3. Create the HAProxy configuration at `/opt/InstaMation/haproxy.cfg`:
 
    ```cfg
    global
@@ -620,12 +620,12 @@ Skip this subsection if Vercel uses managed Redis instead. If Vercel is to enque
 4. Build the certificate bundle HAProxy expects. `fullchain.pem` must precede `privkey.pem`:
 
    ```bash
-   sudo install -d -m 700 /opt/EngagePilot/certs
+   sudo install -d -m 700 /opt/InstaMation/certs
    sudo sh -c 'cat \
      /etc/letsencrypt/live/redis.example.com/fullchain.pem \
      /etc/letsencrypt/live/redis.example.com/privkey.pem \
-     > /opt/EngagePilot/certs/redis.pem'
-   sudo chmod 600 /opt/EngagePilot/certs/redis.pem
+     > /opt/InstaMation/certs/redis.pem'
+   sudo chmod 600 /opt/InstaMation/certs/redis.pem
    ```
 
 5. Start and check the TLS proxy:
@@ -640,7 +640,7 @@ Skip this subsection if Vercel uses managed Redis instead. If Vercel is to enque
 7. In Vercel, set a server-only Production environment variable and redeploy:
 
    ```dotenv
-   REDIS_URL=rediss://EngagePilot:YOUR_REDIS_PASSWORD@redis.example.com:6380
+   REDIS_URL=rediss://InstaMation:YOUR_REDIS_PASSWORD@redis.example.com:6380
    ```
 
    Do **not** name this variable `NEXT_PUBLIC_REDIS_URL`. Browser code must never receive Redis credentials. Vercel uses this external `rediss://` URL; the VM worker continues to use the internal `redis://...@redis:6379` URL from Compose.
@@ -656,7 +656,7 @@ DATABASE_URL='YOUR_NEON_DATABASE_URL' npm run db:migrate
 In Vercel, set `DATABASE_URL` to the same Neon database and set `ENCRYPTION_KEY` to the exact value in `.env.worker`. After deployment, submit a test event through the web app and check:
 
 ```bash
-cd /opt/EngagePilot
+cd /opt/InstaMation
 docker compose logs -f worker
 ```
 
@@ -673,10 +673,10 @@ set -eu
 cat \
   /etc/letsencrypt/live/redis.example.com/fullchain.pem \
   /etc/letsencrypt/live/redis.example.com/privkey.pem \
-  > /opt/EngagePilot/certs/redis.pem
+  > /opt/InstaMation/certs/redis.pem
 
-chmod 600 /opt/EngagePilot/certs/redis.pem
-docker compose -f /opt/EngagePilot/compose.yaml restart redis-tls
+chmod 600 /opt/InstaMation/certs/redis.pem
+docker compose -f /opt/InstaMation/compose.yaml restart redis-tls
 ```
 
 Enable it and verify the renewal path:

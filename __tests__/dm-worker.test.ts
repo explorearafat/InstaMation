@@ -979,9 +979,9 @@ describe("DM Worker — one private reply per comment", () => {
       async (args: { where?: Record<string, unknown> } = {}) => {
         const status: unknown = (args.where as Record<string, unknown> | undefined)?.status;
         if (status && typeof status === "object" && "in" in (status as Record<string, unknown>))
-          return { automation: { name: "EngagePilot 1" } } as unknown as never;
+          return { automation: { name: "InstaMation 1" } } as unknown as never;
         return (status as string) === "SENT"
-          ? ({ automation: { name: "EngagePilot 1" } } as unknown as never)
+          ? ({ automation: { name: "InstaMation 1" } } as unknown as never)
           : ({ commenterName: "commenter_user" } as unknown as never);
       }
     );
@@ -994,11 +994,11 @@ describe("DM Worker — one private reply per comment", () => {
     const dedupCalled =
       (mockPrisma.dmLog.update as unknown as { mock: { calls: unknown[] } }).mock.calls.some(
         (c: unknown) =>
-          JSON.stringify(c).includes("SKIPPED_DEDUP") && JSON.stringify(c).includes("EngagePilot 1")
+          JSON.stringify(c).includes("SKIPPED_DEDUP") && JSON.stringify(c).includes("InstaMation 1")
       ) ||
       (mockPrisma.dmLog.create as unknown as { mock: { calls: unknown[] } }).mock.calls.some(
         (c: unknown) =>
-          JSON.stringify(c).includes("SKIPPED_DEDUP") && JSON.stringify(c).includes("EngagePilot 1")
+          JSON.stringify(c).includes("SKIPPED_DEDUP") && JSON.stringify(c).includes("InstaMation 1")
       );
     expect(dedupCalled).toBe(true);
   });

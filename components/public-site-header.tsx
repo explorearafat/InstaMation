@@ -20,9 +20,9 @@ export default function PublicSiteHeader({ active }: PublicSiteHeaderProps) {
         <Link
           href="/"
           className="flex items-center gap-3"
-          aria-label="EngagePilot home"
+          aria-label="InstaMation home"
         >
-          <span className="text-lg font-bold text-white">EngagePilot</span>
+          <span className="text-lg font-bold text-white">InstaMation</span>
         </Link>
 
         <nav className="hidden items-center gap-7 md:flex">

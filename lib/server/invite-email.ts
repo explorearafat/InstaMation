@@ -41,7 +41,7 @@ async function sendEmail(opts: {
     return false;
   }
 
-  const from = process.env.EMAIL_FROM ?? "EngagePilot <login@example.com>";
+  const from = process.env.EMAIL_FROM ?? "InstaMation <login@example.com>";
   try {
     const res = await fetch(RESEND_API_URL, {
       method: "POST",
@@ -126,7 +126,7 @@ function emailShell(opts: {
                     <span style="display:block;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:15px;font-weight:800;letter-spacing:-0.04em;color:#ffffff;line-height:36px;">O</span>
                   </td>
                   <td style="padding-left:10px;vertical-align:middle;">
-                    <span style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13.5px;font-weight:700;letter-spacing:-0.02em;color:#0f172a;">EngagePilot</span>
+                    <span style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13.5px;font-weight:700;letter-spacing:-0.02em;color:#0f172a;">InstaMation</span>
                     <span style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#94a3b8;margin-left:8px;vertical-align:middle;">${escapeHtml(opts.badgeLabel)}</span>
                   </td>
                 </tr>
@@ -189,7 +189,7 @@ function emailShell(opts: {
           <tr>
             <td style="padding:22px 8px 0;text-align:center;">
               <p style="margin:0 0 6px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:11px;line-height:1.6;color:#94a3b8;">
-                Sent by <span style="color:#64748b;font-weight:600;">EngagePilot</span> — Instagram comment-to-DM automation
+                Sent by <span style="color:#64748b;font-weight:600;">InstaMation</span> — Instagram comment-to-DM automation
               </p>
               <p style="margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:11px;line-height:1.6;color:#cbd5e1;">
                 This is an automated message, please do not reply.
@@ -216,7 +216,7 @@ function initialFromName(name: string): string {
 /* ------------------------------------------------------------------ */
 
 export async function sendInviteEmail(payload: InviteEmailPayload): Promise<boolean> {
-  const subject = `You're invited to join ${payload.workspaceName} on EngagePilot`;
+  const subject = `You're invited to join ${payload.workspaceName} on InstaMation`;
   const safeWorkspace = escapeHtml(payload.workspaceName);
   const safeInviter = escapeHtml(payload.invitedBy);
   const initial = escapeHtml(initialFromName(payload.invitedBy));
@@ -231,7 +231,7 @@ export async function sendInviteEmail(payload: InviteEmailPayload): Promise<bool
           <p style="margin:0;font-size:14px;line-height:1.5;color:#0f172a;">
             <span style="font-weight:700;">${safeInviter}</span> <span style="color:#64748b;">invited you to</span> <span style="font-weight:700;">${safeWorkspace}</span>
           </p>
-          <p style="margin:2px 0 0;font-size:12.5px;line-height:1.5;color:#94a3b8;">Member&nbsp;·&nbsp;EngagePilot workspace</p>
+          <p style="margin:2px 0 0;font-size:12.5px;line-height:1.5;color:#94a3b8;">Member&nbsp;·&nbsp;InstaMation workspace</p>
         </td>
       </tr>
     </table>
@@ -241,7 +241,7 @@ export async function sendInviteEmail(payload: InviteEmailPayload): Promise<bool
   `;
 
   const html = emailShell({
-    preheader: `${payload.invitedBy} invited you to join ${payload.workspaceName} on EngagePilot`,
+    preheader: `${payload.invitedBy} invited you to join ${payload.workspaceName} on InstaMation`,
     badgeLabel: "Invitation",
     title: `You’re invited to <span style="color:#0f172a;">${safeWorkspace}</span>`,
     introHtml,
@@ -251,7 +251,7 @@ export async function sendInviteEmail(payload: InviteEmailPayload): Promise<bool
   });
 
   const text = [
-    `${payload.invitedBy} invited you to join ${payload.workspaceName} as a member on EngagePilot.`,
+    `${payload.invitedBy} invited you to join ${payload.workspaceName} as a member on InstaMation.`,
     ``,
     `Accept your invitation: ${payload.inviteUrl}`,
     ``,
@@ -264,7 +264,7 @@ export async function sendInviteEmail(payload: InviteEmailPayload): Promise<bool
 export async function sendMemberAddedEmail(
   payload: MemberAddedEmailPayload
 ): Promise<boolean> {
-  const subject = `You've been added to ${payload.workspaceName} on EngagePilot`;
+  const subject = `You've been added to ${payload.workspaceName} on InstaMation`;
   const safeWorkspace = escapeHtml(payload.workspaceName);
 
   const introHtml = `
@@ -277,7 +277,7 @@ export async function sendMemberAddedEmail(
   `;
 
   const html = emailShell({
-    preheader: `You’ve been added to ${payload.workspaceName} on EngagePilot — open your dashboard`,
+    preheader: `You’ve been added to ${payload.workspaceName} on InstaMation — open your dashboard`,
     badgeLabel: "Workspace",
     title: `You’re in — welcome to <span style="color:#0f172a;">${safeWorkspace}</span>`,
     introHtml,
@@ -286,7 +286,7 @@ export async function sendMemberAddedEmail(
   });
 
   const text = [
-    `You've been added to ${payload.workspaceName} as a member on EngagePilot.`,
+    `You've been added to ${payload.workspaceName} as a member on InstaMation.`,
     ``,
     `Open your dashboard: ${payload.signInUrl}`,
   ].join("\n");

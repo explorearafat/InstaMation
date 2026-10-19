@@ -160,7 +160,7 @@ async function SettingsContent() {
                 View documentation
               </a>
               <a
-                href="https://github.com/AmitDas4321/EngagePilot/issues"
+                href="https://github.com/explorearafat/InstaMation/issues"
                 target="_blank"
                 rel="noreferrer"
                 className={cn(

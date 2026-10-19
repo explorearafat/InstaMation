@@ -97,7 +97,7 @@ const faqs = [
   },
   {
     title: "Will Instagram flag automatic DMs?",
-    body: "Private replies are an official Meta feature for professional accounts. EngagePilot uses that endpoint keyed by comment ID, with queued, rate-limited delivery — no scraping or browser automation.",
+    body: "Private replies are an official Meta feature for professional accounts. InstaMation uses that endpoint keyed by comment ID, with queued, rate-limited delivery — no scraping or browser automation.",
   },
   {
     title: "Can I require people to follow me first?",
@@ -363,7 +363,7 @@ export default function CommentToDmExamplesPage() {
                   Start free <ArrowRightIcon className="ml-1 size-4" weight="bold" />
                 </Link>
                 <a
-                  href="https://github.com/AmitDas4321/EngagePilot"
+                  href="https://github.com/explorearafat/InstaMation"
                   target="_blank"
                   rel="noreferrer"
                   className={cn(

@@ -11,7 +11,7 @@ export const manychatAlternativePage: SeoPageConfig = {
   eyebrow: "Manychat alternative",
   title: "A focused Manychat alternative for Instagram comment-to-DM campaigns",
   description:
-    "EngagePilot is for teams that do not need a broad chatbot builder. It turns keyword comments into Meta-compliant private replies, tracked links, campaign analytics, and client reports.",
+    "InstaMation is for teams that do not need a broad chatbot builder. It turns keyword comments into Meta-compliant private replies, tracked links, campaign analytics, and client reports.",
   primaryCta: "Try the focused alternative",
   bullets: [
     "Built around Instagram comments, posts, reels, and private replies.",
@@ -22,7 +22,7 @@ export const manychatAlternativePage: SeoPageConfig = {
   sections: [
     {
       title: "Narrower by design",
-      body: "Broad automation suites can be powerful, but they also add flow-builder weight. EngagePilot keeps the campaign path tight: keyword, post, reply, link, result.",
+      body: "Broad automation suites can be powerful, but they also add flow-builder weight. InstaMation keeps the campaign path tight: keyword, post, reply, link, result.",
     },
     {
       title: "Agency proof",
@@ -33,7 +33,7 @@ export const manychatAlternativePage: SeoPageConfig = {
       body: "Comment events are processed through webhooks, queued, deduped, checked against limits, and sent as private replies using the comment ID.",
     },
   ],
-  comparisonTitle: "EngagePilot vs broad chatbot builders",
+  comparisonTitle: "InstaMation vs broad chatbot builders",
   comparisons: [
     {
       label: "Setup",
@@ -54,8 +54,8 @@ export const manychatAlternativePage: SeoPageConfig = {
   relatedLinks,
   faqs: [
     {
-      title: "Is EngagePilot a full Manychat replacement?",
-      body: "No. EngagePilot is intentionally focused on Instagram comment-to-DM campaigns. If you need a complete chatbot suite, use a broad platform. If you need fast campaign loops, EngagePilot is built for that.",
+      title: "Is InstaMation a full Manychat replacement?",
+      body: "No. InstaMation is intentionally focused on Instagram comment-to-DM campaigns. If you need a complete chatbot suite, use a broad platform. If you need fast campaign loops, InstaMation is built for that.",
     },
     {
       title: "Does it support agencies?",
@@ -68,7 +68,7 @@ export const agenciesSeoPage: SeoPageConfig = {
   eyebrow: "Instagram DM automation for agencies",
   title: "Instagram DM automation for agencies managing client campaigns",
   description:
-    "EngagePilot gives agencies multi-account workspaces, client-ready reports, tracked links, and a focused comment-to-DM workflow for repeatable Instagram campaigns.",
+    "InstaMation gives agencies multi-account workspaces, client-ready reports, tracked links, and a focused comment-to-DM workflow for repeatable Instagram campaigns.",
   primaryCta: "Start an agency workspace",
   bullets: [
     "Connect multiple client Instagram accounts on the Agency plan.",
@@ -172,7 +172,7 @@ export const commentLinkSeoPage: SeoPageConfig = {
       body: "Yes. Each campaign can use multiple keywords such as PRICE, SHOP, GUIDE, PLAN, WAITLIST, TOUR, or your own phrase.",
     },
     {
-      title: "Does EngagePilot send a normal Instagram DM?",
+      title: "Does InstaMation send a normal Instagram DM?",
       body: "It sends a Meta-compliant private reply triggered by the comment event, using the Instagram comment ID.",
     },
   ],
@@ -182,7 +182,7 @@ export const linkdmAlternativePage: SeoPageConfig = {
   eyebrow: "LinkDM alternative",
   title: "The open-source LinkDM alternative for Instagram comment-to-DM",
   description:
-    "EngagePilot does what LinkDM does — keyword comments trigger tracked private replies — but open-source, self-hostable, and without per-message markups. Official Meta API, no scraping.",
+    "InstaMation does what LinkDM does — keyword comments trigger tracked private replies — but open-source, self-hostable, and without per-message markups. Official Meta API, no scraping.",
   primaryCta: "Try the LinkDM alternative",
   bullets: [
     "Same LINK / keyword → DM flow: comment triggers private reply with your link.",
@@ -193,7 +193,7 @@ export const linkdmAlternativePage: SeoPageConfig = {
   sections: [
     {
       title: "Drop-in replacement",
-      body: "If you use LinkDM for LINK comments, EngagePilot is a 1:1 swap: pick a post/reel, set keywords like LINK, SHOP, GUIDE, and the worker delivers Meta-compliant private replies with your tracked URL.",
+      body: "If you use LinkDM for LINK comments, InstaMation is a 1:1 swap: pick a post/reel, set keywords like LINK, SHOP, GUIDE, and the worker delivers Meta-compliant private replies with your tracked URL.",
     },
     {
       title: "Own your stack",
@@ -204,7 +204,7 @@ export const linkdmAlternativePage: SeoPageConfig = {
       body: "Every reply can wrap your destination in a tracked redirect (/r/[slug]). See per-campaign clicks and CTR, not just sends.",
     },
   ],
-  comparisonTitle: "EngagePilot vs LinkDM",
+  comparisonTitle: "InstaMation vs LinkDM",
   comparisons: [
     {
       label: "Pricing",
@@ -226,7 +226,7 @@ export const linkdmAlternativePage: SeoPageConfig = {
   faqs: [
     {
       title: "Can I migrate from LinkDM easily?",
-      body: "Yes. Recreate your LinkDM keywords and reply copy as an EngagePilot campaign on the same post/reel. Connect your Instagram professional account and you're live on the official Meta private replies API.",
+      body: "Yes. Recreate your LinkDM keywords and reply copy as an InstaMation campaign on the same post/reel. Connect your Instagram professional account and you're live on the official Meta private replies API.",
     },
     {
       title: "Does it support reels and existing posts?",
@@ -239,7 +239,7 @@ export const chatfuelAlternativePage: SeoPageConfig = {
   eyebrow: "Chatfuel alternative",
   title: "A lean Chatfuel alternative for Instagram comment-to-DM",
   description:
-    "Chatfuel is a full chatbot suite. If you just need Instagram keyword comments → private replies with tracking and logs, EngagePilot is the focused, open-source alternative.",
+    "Chatfuel is a full chatbot suite. If you just need Instagram keyword comments → private replies with tracking and logs, InstaMation is the focused, open-source alternative.",
   primaryCta: "Try the lean alternative",
   bullets: [
     "Instagram-first: no general bot builder, just campaigns that convert comments to DMs.",
@@ -261,7 +261,7 @@ export const chatfuelAlternativePage: SeoPageConfig = {
       body: "MIT-licensed core. Inspect the queue, worker, Meta client, and encryption. Self-host or use the hosted version.",
     },
   ],
-  comparisonTitle: "EngagePilot vs Chatfuel",
+  comparisonTitle: "InstaMation vs Chatfuel",
   comparisons: [
     {
       label: "Scope",
@@ -283,7 +283,7 @@ export const chatfuelAlternativePage: SeoPageConfig = {
   faqs: [
     {
       title: "Should I replace Chatfuel entirely?",
-      body: "If Instagram comment-to-DM is your core loop, EngagePilot replaces that slice cleanly. Keep Chatfuel if you need full Messenger/WhatsApp bot journeys across channels.",
+      body: "If Instagram comment-to-DM is your core loop, InstaMation replaces that slice cleanly. Keep Chatfuel if you need full Messenger/WhatsApp bot journeys across channels.",
     },
     {
       title: "Is this compliant with Meta?",
@@ -296,7 +296,7 @@ export const instagramAutoDmPage: SeoPageConfig = {
   eyebrow: "Instagram Auto DM",
   title: "Instagram Auto DM that replies the second they comment",
   description:
-    "EngagePilot is the free, open-source Instagram Auto DM tool: connect your professional account, set a keyword, and every matching comment gets an instant, Meta-compliant DM with your tracked link.",
+    "InstaMation is the free, open-source Instagram Auto DM tool: connect your professional account, set a keyword, and every matching comment gets an instant, Meta-compliant DM with your tracked link.",
   primaryCta: "Set up Auto DM",
   bullets: [
     "Keyword or whole-phrase matching (LINK, PRICE, GUIDE, or your own).",
@@ -340,7 +340,7 @@ export const instagramAutoDmPage: SeoPageConfig = {
   faqs: [
     {
       title: "Will Instagram flag Auto DM?",
-      body: "Private replies are an official Meta feature for professional accounts. EngagePilot uses that API, respects rate limits, and avoids browser automation.",
+      body: "Private replies are an official Meta feature for professional accounts. InstaMation uses that API, respects rate limits, and avoids browser automation.",
     },
     {
       title: "Can I require a follow first?",
@@ -353,7 +353,7 @@ export const instagramKeywordAutomationPage: SeoPageConfig = {
   eyebrow: "Instagram keyword automation",
   title: "Instagram keyword automation for high-intent comments",
   description:
-    "Turn keywords like LINK, SHOP, GUIDE, PRICE, and WAITLIST into automatic private replies. EngagePilot matches exact or phrase keywords and delivers tracked links with full logs.",
+    "Turn keywords like LINK, SHOP, GUIDE, PRICE, and WAITLIST into automatic private replies. InstaMation matches exact or phrase keywords and delivers tracked links with full logs.",
   primaryCta: "Automate keywords",
   bullets: [
     "Multiple keywords per campaign, exact or whole-phrase matching.",
@@ -410,7 +410,7 @@ export const autoReplyInstagramCommentsPage: SeoPageConfig = {
   eyebrow: "Auto reply Instagram comments",
   title: "Auto-reply Instagram comments without missing the spike",
   description:
-    "Let EngagePilot auto-reply to Instagram comments via private DMs and optional public replies. Webhooks + polling reconciliation catch every comment, even when your reel blows up.",
+    "Let InstaMation auto-reply to Instagram comments via private DMs and optional public replies. Webhooks + polling reconciliation catch every comment, even when your reel blows up.",
   primaryCta: "Auto-reply comments",
   bullets: [
     "Private reply + optional public reply per campaign.",
@@ -467,7 +467,7 @@ export const instagramLeadMagnetAutomationPage: SeoPageConfig = {
   eyebrow: "Instagram lead magnet automation",
   title: "Turn GUIDE comments into leads on autopilot",
   description:
-    "Give away your guide, checklist, or free plan in comments and deliver it by DM automatically. EngagePilot tracks clicks, handles follow-gates, and logs every send for creator and coaching funnels.",
+    "Give away your guide, checklist, or free plan in comments and deliver it by DM automatically. InstaMation tracks clicks, handles follow-gates, and logs every send for creator and coaching funnels.",
   primaryCta: "Automate your lead magnet",
   bullets: [
     "Keywords like GUIDE, CHECKLIST, PLAN, START, FREE trigger the asset DM.",

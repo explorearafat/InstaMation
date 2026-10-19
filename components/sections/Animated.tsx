@@ -16,7 +16,7 @@ import {
   useInView,
 } from "motion/react";
 import Image from "next/image";
-import anish from "@/assets/amit.webp";
+import arafat from "@/assets/arafat.webp";
 import { HeartIcon } from "@phosphor-icons/react/dist/ssr";
 
 // ============================================================================
@@ -178,7 +178,7 @@ const UserBubble = memo(function UserBubble({ text }: { text: string }) {
       className="self-start max-w-[82%] flex items-end gap-2.5"
     >
       <Image
-        src={anish}
+        src={arafat}
         alt=""
         aria-hidden="true"
         width={28}
@@ -311,7 +311,7 @@ export default function InteractiveChatMorph() {
           />
           <div className="self-start max-w-[82%] flex items-end gap-2.5">
             <Image
-              src={anish}
+              src={arafat}
               alt=""
               aria-hidden="true"
               width={28}
@@ -358,7 +358,7 @@ export default function InteractiveChatMorph() {
               className="bg-card border p-4 rounded-3xl shadow-2xl flex items- gap-3.5"
             >
               <Image
-                src={anish}
+                src={arafat}
                 alt=""
                 aria-hidden="true"
                 width={36}
@@ -369,12 +369,12 @@ export default function InteractiveChatMorph() {
               <div className="flex-1">
                 <a
                   className="flex items-center gap-2 mb-0.5"
-                  href="https://instagram.com/AmitDas4321"
+                  href="https://instagram.com/explorearafat"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <span className="text-xs font-semibold text-muted-foreground  hover:underline">
-                    @AmitDas4321
+                    @explorearafat
                   </span>
                   <span className="text-[10px] text-muted-foreground/70">
                     Just now

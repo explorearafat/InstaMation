@@ -1,11 +1,11 @@
-# EngagePilot — Local Development Services
+# InstaMation — Local Development Services
 # Run from the repository root: docker compose -f infra/docker/docker-compose.yml up -d
 
 services:
   postgres:
     image: postgres:16
     environment:
-      POSTGRES_DB: EngagePilot
+      POSTGRES_DB: InstaMation
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
