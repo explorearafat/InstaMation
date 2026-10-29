@@ -126,13 +126,14 @@ export default function AppSidebar({
               tooltip="InstaMation"
               render={<Link href="/dashboard" />}
             >
-              <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground overflow-hidden">
+              <span className="flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-primary text-primary-foreground transition-transform duration-500 ease-out group-hover/menu-button:scale-105">
                 <Image
                   src="/logo2.svg"
                   alt="InstaMation"
                   width={20}
                   height={20}
                   unoptimized
+                  className="transition-transform duration-500 ease-out group-hover/menu-button:rotate-[6deg]"
                 />
               </span>
               <span className="grid flex-1 text-left text-sm leading-tight truncate md:text-lg tracking-tight font-medium">

@@ -7,7 +7,7 @@ import {
   CheckIcon,
   EnvelopeSimpleIcon,
   GithubLogoIcon,
-  WrenchIcon,
+  WhatsappLogoIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import {
   detectCountryClientSide,
@@ -16,7 +16,7 @@ import {
   type PricingInfo,
 } from "@/lib/geo-pricing";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { mailto } from "@/lib/site";
+import { mailto, whatsapp, SETUP_MESSAGE } from "@/lib/site";
 
 function Check() {
   return (
@@ -119,8 +119,6 @@ export default function Pricing({
       cancelled = true;
     };
   }, []);
-
-  const mailSubject = `Done-for-you setup (${pricing.display} one-time)`;
 
   return (
     <section
@@ -242,12 +240,20 @@ export default function Pricing({
             </div>
 
             <a
-              href={mailto(mailSubject)}
-              className="mt-6 inline-flex h-12 items-center justify-center gap-2 rounded-full bg-linear-to-b from-lime-200 via-lime-400 to-lime-500 px-6 text-[15px] font-semibold text-primary-foreground shadow-lg transition-all hover:-translate-y-px hover:brightness-98"
+              href={whatsapp(SETUP_MESSAGE)}
+              target="_blank"
+              rel="noreferrer"
+              className="group/cta mt-6 inline-flex h-12 items-center justify-center gap-2 rounded-full bg-linear-to-b from-lime-200 via-lime-400 to-lime-500 px-6 text-[15px] font-semibold text-primary-foreground shadow-lg transition-all duration-300 hover:-translate-y-px hover:brightness-98 hover:shadow-xl active:translate-y-0 active:scale-[0.99]"
             >
-              <WrenchIcon weight="duotone" className="size-4" />
+              <WhatsappLogoIcon
+                weight="fill"
+                className="size-4 transition-transform duration-300 group-hover/cta:scale-110"
+              />
               Get it set up
             </a>
+            <p className="mt-3 text-center text-xs text-muted-foreground">
+              Opens WhatsApp with your message ready — no forms.
+            </p>
           </article>
         </div>
 

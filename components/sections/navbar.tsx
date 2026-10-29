@@ -44,16 +44,20 @@ const Navbar = () => {
   return (
     <header className="fixed w-full md:w-11/12 top-0 md:top-2 z-40 border-b border-border/50 bg-background/60 backdrop-blur-xl md:rounded-full -translate-x-1/2 left-1/2">
       <div className="mx-auto flex h-15 w-full max-w-8xl items-center justify-between px-2 sm:px-6 lg:px-8 rounded-full">
-        <Link href="/" className="flex items-center gap-2" aria-label="InstaMation home">
+        <Link
+          href="/"
+          className="group flex shrink-0 items-center gap-2 rounded-full outline-none transition-opacity duration-300 hover:opacity-90 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          aria-label="InstaMation home"
+        >
           <Image
             src="/logo1.svg"
             alt="InstaMation logo"
             width={32}
             height={32}
             unoptimized
-            className="size-5 sm:size-8 transition-all duration-300 dark:invert-0 invert shimmer"
+            className="size-5 shrink-0 transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-[4deg] sm:size-7 md:size-8 dark:invert-0 invert shimmer"
           />
-          <span className="text-sm md:text-lg font-bold tracking-tight text-foreground">
+          <span className="hidden text-sm font-bold tracking-tight text-foreground transition-colors duration-300 group-hover:text-primary sm:inline md:text-lg">
             InstaMation
           </span>
         </Link>

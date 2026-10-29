@@ -79,7 +79,7 @@ export default function Footer() {
           <div className="col-span-2 sm:col-span-3 lg:col-span-2">
             <Link
               href="/"
-              className="inline-flex items-center gap-2"
+              className="group inline-flex items-center gap-2 rounded-lg outline-none transition-opacity duration-300 hover:opacity-90 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               aria-label="InstaMation home"
             >
               <Image
@@ -88,9 +88,9 @@ export default function Footer() {
                 width={28}
                 height={28}
                 unoptimized
-                className="size-7 transition-all duration-300 dark:invert-0 invert"
+                className="size-6 shrink-0 transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-[4deg] sm:size-7 dark:invert-0 invert"
               />
-              <span className="text-base font-bold tracking-tight text-foreground">
+              <span className="text-base font-bold tracking-tight text-foreground transition-colors duration-300 group-hover:text-primary">
                 InstaMation
               </span>
             </Link>

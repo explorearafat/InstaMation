@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import Link from "next/link";
 import { signIn } from "@/lib/auth";
 import { getCampaignTemplate } from "@/lib/templates/campaign-templates";
 import { Button } from "@/components/ui/button";
@@ -128,14 +129,20 @@ async function LoginContent({ searchParams }: { searchParams: LoginSearchParams 
         <div className="w-full max-w-sm">
           {/* Logo */}
           <div className="mb-10">
-            <Image
-              src="/logo3.svg"
-              width={36}
-              height={40}
-              alt="InstaMation"
-              unoptimized
-              className="h-9 w-auto"
-            />
+            <Link
+              href="/"
+              aria-label="InstaMation home"
+              className="mx-auto inline-flex w-fit rounded-lg outline-none transition-transform duration-300 ease-out hover:scale-[1.04] focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              <Image
+                src="/logo3.svg"
+                width={36}
+                height={40}
+                alt="InstaMation"
+                unoptimized
+                className="h-8 w-auto sm:h-9"
+              />
+            </Link>
           </div>
 
           {/* Heading */}

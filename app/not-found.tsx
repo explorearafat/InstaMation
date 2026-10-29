@@ -15,14 +15,20 @@ export default function NotFoundPage() {
       <div className="flex-1 flex items-center justify-center px-6 lg:px-12">
         <div className="w-full max-w-sm text-center">
           <div className="mb-10 lg:hidden">
-            <Image
-              src="/logo3.svg"
-              width={36}
-              height={40}
-              alt="InstaMation"
-              unoptimized
-              className="h-9 w-auto mx-auto"
-            />
+            <Link
+              href="/"
+              aria-label="InstaMation home"
+              className="mx-auto inline-flex w-fit rounded-lg outline-none transition-transform duration-300 ease-out hover:scale-[1.04] focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              <Image
+                src="/logo3.svg"
+                width={36}
+                height={40}
+                alt="InstaMation"
+                unoptimized
+                className="h-8 w-auto sm:h-9"
+              />
+            </Link>
           </div>
 
           <div className="mb-8">

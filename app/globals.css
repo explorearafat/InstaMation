@@ -4,6 +4,18 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Smooth in-page jumps (the landing page links to #features, #how, ...).
+   Kept inside a reduced-motion guard so it never fights the user's OS
+   preference — the block below already shortens animations, and this makes
+   the intent explicit for anchor navigation. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+    /* Offset so the fixed navbar does not cover the section we jump to. */
+    scroll-padding-top: 6rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
