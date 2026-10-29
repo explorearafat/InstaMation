@@ -10,8 +10,8 @@ const Dashboard = () => {
           <Image
             src={dashboardImage}
             alt="dashboard"
-            width={800}
-            height={600}
+            width={1512}
+            height={900}
             className="hover:scale-120 scale-110 brightness-150 dark:brightness-105 hover:brightness-120 transition-all duration-500 ease-in-out"
           />
         </div>
