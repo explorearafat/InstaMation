@@ -43,6 +43,7 @@ export interface AnimatedTextProps {
   text: string;
   className?: string;
   delay?: number;
+  reduced?: boolean;
 }
 
 export interface BotBubbleProps {
@@ -50,6 +51,7 @@ export interface BotBubbleProps {
   message: string;
   ctaText: string;
   ctaDelay?: number;
+  reduced?: boolean;
 }
 
 // ============================================================================
@@ -99,13 +101,25 @@ const cardVariants: Variants = {
   },
 };
 
+// prefers-reduced-motion: content still swaps on the same timeline, but
+// limited to opacity — no transforms, springs, blur, or layout morphing
+const reducedCardVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.45 } },
+  exit: { opacity: 0, transition: { duration: 0.25 } },
+};
+
 // ============================================================================
 // Sub-Components — memoized to reduce parent step rerenders
 // ============================================================================
 
 export const AnimatedText: React.FC<AnimatedTextProps> = memo(
-  ({ text, className = "", delay = 0 }) => {
+  ({ text, className = "", delay = 0, reduced = false }) => {
     const words = useMemo(() => text.split(" "), [text]);
+
+    if (reduced) {
+      return <span className={`inline-block ${className}`}>{text}</span>;
+    }
 
     return (
       <motion.span
@@ -131,24 +145,24 @@ export const AnimatedText: React.FC<AnimatedTextProps> = memo(
 AnimatedText.displayName = "AnimatedText";
 
 export const BotBubble: React.FC<BotBubbleProps> = memo(
-  ({ layoutId, message, ctaText, ctaDelay = 0.4 }) => {
+  ({ layoutId, message, ctaText, ctaDelay = 0.4, reduced = false }) => {
     return (
       <motion.div
-        layoutId={layoutId}
-        layout
-        variants={cardVariants}
+        layoutId={reduced ? undefined : layoutId}
+        layout={!reduced}
+        variants={reduced ? reducedCardVariants : cardVariants}
         initial="hidden"
         animate="visible"
         exit="exit"
         className="self-end max-w-[85%] bg-linear-to-br from-purple-600 via-indigo-600 to-purple-700 text-white rounded-3xl rounded-br-md p-4 shadow-xl border border-purple-400/20"
       >
         <p className="text-[15px] font-medium leading-snug mb-3">
-          <AnimatedText text={message} />
+          <AnimatedText text={message} reduced={reduced} />
         </p>
         <motion.button
           type="button"
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={reduced ? { opacity: 0 } : { opacity: 0, y: 8 }}
+          animate={reduced ? { opacity: 1 } : { opacity: 1, y: 0 }}
           transition={{ delay: ctaDelay, duration: 0.5 }}
           className="w-full py-2.5 px-4 bg-white/20 hover:bg-white/30 active:scale-98 rounded-2xl text-sm font-semibold transition-all border border-white/20 shadow-md flex items-center justify-center gap-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-300"
         >
@@ -167,11 +181,17 @@ export const BotBubble: React.FC<BotBubbleProps> = memo(
 );
 BotBubble.displayName = "BotBubble";
 
-const UserBubble = memo(function UserBubble({ text }: { text: string }) {
+const UserBubble = memo(function UserBubble({
+  text,
+  reduced = false,
+}: {
+  text: string;
+  reduced?: boolean;
+}) {
   return (
     <motion.div
-      layout
-      variants={cardVariants}
+      layout={!reduced}
+      variants={reduced ? reducedCardVariants : cardVariants}
       initial="hidden"
       animate="visible"
       exit="exit"
@@ -188,7 +208,7 @@ const UserBubble = memo(function UserBubble({ text }: { text: string }) {
       />
       <div className="bg-muted border text-foreground rounded-3xl rounded-bl-md py-3 px-4 shadow-lg">
         <p className="text-[14px] font-normal leading-relaxed">
-          <AnimatedText text={text} />
+          <AnimatedText text={text} reduced={reduced} />
         </p>
       </div>
     </motion.div>
@@ -202,6 +222,7 @@ const UserBubble = memo(function UserBubble({ text }: { text: string }) {
 export default function InteractiveChatMorph() {
   const [step, setStep] = useState<ChatStep>(ChatStep.COMMENT);
   const shouldReduceMotion = useReducedMotion();
+  const reduced = !!shouldReduceMotion;
 
   // viewport-aware: pause timeline when off-screen
   const containerRef = useRef<HTMLDivElement>(null);
@@ -257,8 +278,8 @@ export default function InteractiveChatMorph() {
   }, []);
 
   useEffect(() => {
-    // Static accessible view for users with prefers-reduced-motion active
-    if (shouldReduceMotion) return;
+    // Timeline runs for every user; with prefers-reduced-motion the step
+    // changes still happen but render opacity-only (see reducedCardVariants)
 
     // Pause when off-screen — saves CPU/GPU and avoids background work
     if (!isInView) {
@@ -296,44 +317,7 @@ export default function InteractiveChatMorph() {
     };
   }, [runTimeline, clearAllTimers, shouldReduceMotion, isInView]);
 
-  // Reduced motion accessible fallback — no timers, no motion
-  if (shouldReduceMotion) {
-    return (
-      <div className="flex items-center justify-center text-foreground">
-        <div
-          className="w-full max-w-sm space-y-4"
-          role="log"
-          aria-live="polite"
-        >
-          <BotBubble
-            message="Hey 👋 Here's that ebook you requested!"
-            ctaText="Grab Your Guide"
-          />
-          <div className="self-start max-w-[82%] flex items-end gap-2.5">
-            <Image
-              src={arafat}
-              alt=""
-              aria-hidden="true"
-              width={28}
-              height={28}
-              loading="lazy"
-              className="size-7 rounded-full object-cover border mb-1"
-            />
-            <div className="bg-muted border text-foreground rounded-3xl rounded-bl-md py-3 px-4 shadow-lg">
-              <p className="text-[14px]">
-                Do you have a website where I can see more?
-              </p>
-            </div>
-          </div>
-          <BotBubble
-            message="Check out our main product showcase!"
-            ctaText="Let's Go!"
-          />
-        </div>
-      </div>
-    );
-  }
-
+  // Reduced motion renders the same cycle with opacity-only variants above
   return (
     <div
       ref={containerRef}
@@ -381,16 +365,20 @@ export default function InteractiveChatMorph() {
                   </span>
                 </a>
                 <div className="text-sm font-medium text-card-foreground flex items-center gap-1.5">
-                  <AnimatedText text="Send Link 🚀!" />
+                  <AnimatedText text="Send Link 🚀!" reduced={reduced} />
                 </div>
                 <p className="text-[11px] tracking-wide text-muted-foreground">
                   Reply
                 </p>
               </div>
               <motion.span
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.4, type: "spring" }}
+                initial={reduced ? { opacity: 0 } : { scale: 0 }}
+                animate={reduced ? { opacity: 1 } : { scale: 1 }}
+                transition={
+                  reduced
+                    ? { delay: 0.4, duration: 0.3 }
+                    : { delay: 0.4, type: "spring" }
+                }
                 className="px-2.5 py-1 bg-lime-200 text-lime-900 dark:bg-lime-900 dark:text-primary border border-primary/20 rounded-full text-xs font-medium h-fit my-auto"
               >
                 Triggered
@@ -418,6 +406,7 @@ export default function InteractiveChatMorph() {
                   message="Hey 👋 Here's that ebook you requested!"
                   ctaText="Grab Your Guide"
                   ctaDelay={0.5}
+                  reduced={reduced}
                 />
               )}
 
@@ -427,6 +416,7 @@ export default function InteractiveChatMorph() {
                 <UserBubble
                   key="msg-user-question"
                   text="Do you have a website where I can see more?"
+                  reduced={reduced}
                 />
               )}
 
@@ -437,6 +427,7 @@ export default function InteractiveChatMorph() {
                   message="Check out our main product showcase!"
                   ctaText="Let's Go!"
                   ctaDelay={0.4}
+                  reduced={reduced}
                 />
               )}
             </div>
