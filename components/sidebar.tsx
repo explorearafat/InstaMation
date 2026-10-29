@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
+  BookOpenText,
   CaretUpDown,
   ChartLine,
   ChatCircle,
@@ -67,6 +68,7 @@ const navSections: Array<{ label: string; items: NavItem[] }> = [
   {
     label: "System",
     items: [
+      { label: "Setup guide", href: "/setup", icon: BookOpenText },
       { label: "Settings", href: "/settings", icon: Gear },
       { label: "Diagnostics", href: "/diagnostics", icon: Pulse },
     ],

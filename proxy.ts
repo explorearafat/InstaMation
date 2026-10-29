@@ -12,6 +12,7 @@ const PROTECTED_PREFIXES = [
   "/logs",
   "/overview",
   "/settings",
+  "/setup",
 ];
 
 export async function proxy(request: NextRequest) {

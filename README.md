@@ -180,8 +180,11 @@ Copy `.env.example` to `.env`. Every value is explained below.
 | `GITHUB_ID` / `GITHUB_SECRET` | No | GitHub OAuth sign-in. |
 | `RESEND_API_KEY` | No | Enables email magic-link sign-in. Omit to hide the email form. |
 | `EMAIL_FROM` | No | Sender identity, e.g. `InstaMation <login@yourdomain.com>`. Needs a verified Resend domain. |
+| `LOCAL_SIGNUP` | No | Set `true` on a private/self-hosted instance to enable email + password sign-up on `/login` (accounts live in your own database). Leave unset on a public deployment. |
 
-> OAuth works without any domain and is the fastest way to get in. The magic-link email option only matters if you specifically want passwordless email login.
+> OAuth works without any domain and is the fastest way to get in. The magic-link email option only matters if you specifically want passwordless email login. For the zero-setup path, set `LOCAL_SIGNUP=true` and create your account on `/login`.
+
+> The dashboard's **Setup guide** page walks through every step — prerequisites, where each credential comes from, the Meta app configuration, and a go-live checklist.
 
 ### Meta / Instagram
 

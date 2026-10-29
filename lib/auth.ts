@@ -8,6 +8,7 @@ import { PrismaAdapter } from "@auth/prisma-adapter";
 import { prisma } from "@/lib/db/client";
 import { ensureWorkspaceForUser } from "@/lib/workspace";
 import { sendVerificationRequest } from "@/lib/server/magic-link-email";
+import { verifyPassword } from "@/lib/local-auth";
 import {
   DEMO_PASSWORD,
   DEMO_USER_ID,
@@ -23,6 +24,9 @@ const githubId = process.env.GITHUB_ID ?? process.env.GITHUB_CLIENT_ID;
 const githubSecret =
   process.env.GITHUB_SECRET ?? process.env.GITHUB_CLIENT_SECRET;
 const hasGitHub = !!githubId && !!githubSecret;
+
+/** True when at least one hosted sign-in method (OAuth / magic link) is set. */
+export const hasAnyProvider = hasGoogle || hasGitHub || hasResend;
 
 function buildProviders(): NextAuthConfig["providers"] {
   const providers: NextAuthConfig["providers"] = [];
@@ -60,6 +64,33 @@ function buildProviders(): NextAuthConfig["providers"] {
       })
     );
   }
+  // Local email+password sign-in for self-hosters (LOCAL_SIGNUP=true).
+  // Accounts are created by the signup server action on /login; this provider
+  // only verifies an existing passwordHash against the database.
+  if (process.env.LOCAL_SIGNUP === "true") {
+    providers.push(
+      Credentials({
+        id: "local",
+        name: "Local",
+        credentials: { email: {}, password: {} },
+        async authorize(credentials) {
+          const email = String(credentials?.email ?? "")
+            .trim()
+            .toLowerCase();
+          const password = String(credentials?.password ?? "");
+          if (!email || !password) return null;
+
+          const user = await prisma.user.findUnique({ where: { email } });
+          if (!user?.passwordHash) return null;
+          const ok = await verifyPassword(password, user.passwordHash);
+          if (!ok) return null;
+
+          return { id: user.id, name: user.name, email: user.email };
+        },
+      })
+    );
+  }
+
   // Demo Login — fixed admin/123456 credentials render the dashboard with
   // synthetic data (see lib/demo.ts); nothing touches the database.
   providers.push(
