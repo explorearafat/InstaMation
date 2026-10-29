@@ -67,8 +67,10 @@ export default function PrivacyPage() {
       <section>
         <h2 className="text-xl font-bold text-white">Contact</h2>
         <p className="mt-3">
-          For privacy questions, contact the repository owner through GitHub or
-          the support email configured for the hosted InstaMation service.
+          For privacy questions, or to request export or deletion of your data,
+          contact the maintainer, Eyasin Arafat, at explorearafat@gmail.com or on
+          WhatsApp at +8801610709657. You can also open an issue at
+          github.com/explorearafat/InstaMation/issues.
         </p>
       </section>
     </LegalShell>

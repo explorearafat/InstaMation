@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  allowedDevOrigins: ["openinstadm.instamation.vercel.app"],
+  // Allow LAN/tunnel origins when developing on another device.
+  allowedDevOrigins: ["localhost", "127.0.0.1"],
   // Cache Components: enables `use cache`/`cacheLife` and Partial Prerendering.
   // With it, `dynamic`/`revalidate`/`fetchCache` segment configs are replaced
   // by the new caching model — data fetching is dynamic by default and the

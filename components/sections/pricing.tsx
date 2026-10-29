@@ -16,8 +16,7 @@ import {
   type PricingInfo,
 } from "@/lib/geo-pricing";
 import { SectionHeading } from "@/components/ui/section-heading";
-
-const SETUP_EMAIL = "support@instamation.vercel.app";
+import { mailto } from "@/lib/site";
 
 function Check() {
   return (
@@ -243,7 +242,7 @@ export default function Pricing({
             </div>
 
             <a
-              href={`mailto:${SETUP_EMAIL}?subject=${encodeURIComponent(mailSubject)}`}
+              href={mailto(mailSubject)}
               className="mt-6 inline-flex h-12 items-center justify-center gap-2 rounded-full bg-linear-to-b from-lime-200 via-lime-400 to-lime-500 px-6 text-[15px] font-semibold text-primary-foreground shadow-lg transition-all hover:-translate-y-px hover:brightness-98"
             >
               <WrenchIcon weight="duotone" className="size-4" />
@@ -257,7 +256,7 @@ export default function Pricing({
             Prefer to email?
           </p>
           <a
-            href={`mailto:${SETUP_EMAIL}?subject=${encodeURIComponent("Question about InstaMation setup")}`}
+            href={mailto("Question about InstaMation setup")}
             className="inline-flex h-11 shrink-0 items-center gap-2 rounded-xl border border-border bg-card px-6 text-[15px] font-semibold text-foreground transition-all hover:-translate-y-px hover:bg-muted"
           >
             <EnvelopeSimpleIcon weight="duotone" className="size-4" />

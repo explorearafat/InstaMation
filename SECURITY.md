@@ -8,7 +8,9 @@ The active branch is `main`. Security fixes target `main` unless a maintainer as
 
 ## Reporting a vulnerability
 
-Do not open a public GitHub issue for a vulnerability. Send a private report to the repository owner through GitHub, or email the address on the maintainer's GitHub profile.
+Do not open a public GitHub issue for a vulnerability. Email **explorearafat@gmail.com** with the details, or use GitHub's private
+vulnerability reporting on the repository. Please do not disclose the issue
+publicly until a fix has shipped.
 
 Include a description, steps to reproduce, the impact, whether tokens or user data may be exposed, and a suggested fix if you have one.
 

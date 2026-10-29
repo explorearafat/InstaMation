@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 // import Script from "next/script";
 import Clarity from "@/components/Clarity";
 import { funnelSans } from "@/lib/fonts";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "InstaMation - Open source Instagram comment-to-DM automation",
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
     "social media marketing",
     "manychat alternative",
   ],
-  metadataBase: new URL("https://instamation.instamation.vercel.app"),
+  metadataBase: new URL(SITE_URL),
 };
 
 export default function RootLayout({

@@ -4,9 +4,12 @@ import {
   GithubLogoIcon,
   HeartIcon,
   InstagramLogoIcon,
+  WhatsappLogoIcon,
 } from "@phosphor-icons/react/dist/ssr";
 
-const GITHUB_URL = "https://github.com/explorearafat/InstaMation";
+import { OWNER, REPO, WHATSAPP_URL } from "@/lib/site";
+
+const GITHUB_URL = REPO.url;
 
 const footerLinks = {
   Product: [
@@ -107,7 +110,7 @@ export default function Footer() {
                 GitHub
               </a>
               <a
-                href={"https://www.instagram.com/explorearafat"}
+                href={OWNER.instagram}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-lg bg-linear-to-bl from-pink-600 via-red-500 to-yellow-400 px-3 py-1.5 text-sm font-semibold tracking-tight text-white"
@@ -116,7 +119,35 @@ export default function Footer() {
                 <InstagramLogoIcon weight="fill" className="h-4 w-4" />
                 Instagram
               </a>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg bg-linear-to-b from-emerald-500 to-green-600 px-3 py-1.5 text-sm font-semibold tracking-tight text-white"
+                aria-label="Chat on WhatsApp"
+              >
+                <WhatsappLogoIcon weight="fill" className="h-4 w-4" />
+                WhatsApp
+              </a>
             </div>
+            <p className="mt-4 text-xs text-muted-foreground">
+              Maintained by{" "}
+              <a
+                href={OWNER.github}
+                target="_blank"
+                rel="noreferrer"
+                className="font-medium text-foreground hover:underline"
+              >
+                {OWNER.name}
+              </a>{" "}
+              ·{" "}
+              <a
+                href={`mailto:${OWNER.email}`}
+                className="hover:text-foreground hover:underline"
+              >
+                {OWNER.email}
+              </a>
+            </p>
           </div>
 
           {/* Link columns */}
