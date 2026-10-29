@@ -4,6 +4,7 @@ import { prisma } from "@/lib/db/client";
 import { calculateCtr, normalizeTopKeywords } from "@/lib/tracking/analytics";
 import { buildTrackedUrl } from "@/lib/tracking/message";
 import { buildReportUrl, generateReportShareSlug } from "@/lib/reports/share";
+import { DEMO_CAMPAIGNS, isDemoWorkspace } from "@/lib/demo";
 import type { AutomationGetPayload } from "@/app/generated/prisma/models";
 
 /**
@@ -245,6 +246,9 @@ export async function getCampaignList(
   instagramAccountId?: string | null
 ): Promise<CampaignListItem[]> {
   "use cache";
+  if (isDemoWorkspace(workspaceId)) {
+    return DEMO_CAMPAIGNS;
+  }
   // 15 min stale / 2 h hard expiry — heavy aggregation (includes + 3 groupBy)
   // runs at most once per window; every mutation route invalidates the tag.
   cacheLife({ stale: 900, revalidate: 900, expire: 7200 });

@@ -1,6 +1,11 @@
 import { cacheLife, cacheTag, revalidateTag } from "next/cache";
 import { prisma } from "@/lib/db/client";
 import { loadProfileData } from "@/lib/server/instagram-media";
+import {
+  DEMO_ACCOUNT_OPTIONS,
+  DEMO_SETTINGS,
+  isDemoWorkspace,
+} from "@/lib/demo";
 import type { InstagramAccountStat } from "@/lib/server/stats";
 
 /**
@@ -25,6 +30,9 @@ export async function getSidebarAccounts(
   workspaceId: string
 ): Promise<{ username: string | null; count: number }> {
   "use cache";
+  if (isDemoWorkspace(workspaceId)) {
+    return { username: "arafat", count: 1 };
+  }
   cacheLife({ stale: 300, revalidate: 300, expire: 3600 });
   cacheTag(`sidebar-accounts:${workspaceId}`);
 
@@ -58,6 +66,9 @@ export async function getWorkspaceAccounts(
   workspaceId: string
 ): Promise<WorkspaceAccountOption[]> {
   "use cache";
+  if (isDemoWorkspace(workspaceId)) {
+    return DEMO_ACCOUNT_OPTIONS;
+  }
   cacheLife({ stale: 300, revalidate: 300, expire: 3600 });
   cacheTag(`sidebar-accounts:${workspaceId}`);
 
@@ -85,6 +96,9 @@ export async function getSettingsData(
   workspaceId: string
 ): Promise<SettingsData> {
   "use cache";
+  if (isDemoWorkspace(workspaceId)) {
+    return DEMO_SETTINGS;
+  }
   cacheLife({ stale: 300, revalidate: 300, expire: 3600 });
   cacheTag(`settings:${workspaceId}`);
 

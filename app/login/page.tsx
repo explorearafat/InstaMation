@@ -1,7 +1,14 @@
 import Link from "next/link";
-import { StarIcon, WhatsappLogoIcon } from "@phosphor-icons/react/dist/ssr";
+import {
+  PlayCircleIcon,
+  StarIcon,
+  WhatsappLogoIcon,
+} from "@phosphor-icons/react/dist/ssr";
 import arafatImage from "@/assets/arafat.webp";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { signIn } from "@/lib/auth";
+import { DEMO_PASSWORD, DEMO_USERNAME } from "@/lib/demo";
 import { FlickeringGrid } from "@/components/ui/flickering-grid";
 
 export const metadata = {
@@ -9,6 +16,15 @@ export const metadata = {
   description:
     "Login is coming soon. Contact the creator for early access to InstaMation.",
 };
+
+async function demoLogin() {
+  "use server";
+  await signIn("demo", {
+    username: DEMO_USERNAME,
+    password: DEMO_PASSWORD,
+    redirectTo: "/dashboard",
+  });
+}
 
 export default function LoginPage() {
   return (
@@ -55,6 +71,30 @@ export default function LoginPage() {
           <p className="mt-4 text-xs text-center text-muted-foreground">
             Usually replies within a few hours.
           </p>
+
+          <div className="mt-8 border-t pt-6">
+            <form action={demoLogin}>
+              <Button
+                type="submit"
+                variant="outline"
+                className="w-full"
+                size="lg"
+              >
+                <PlayCircleIcon size={18} weight="fill" />
+                Demo Login
+              </Button>
+            </form>
+            <p className="mt-2 text-center text-[11px] text-muted-foreground">
+              Explore the full dashboard with demo data ·{" "}
+              <code className="rounded bg-muted px-1 py-0.5">
+                {DEMO_USERNAME}
+              </code>{" "}
+              /{" "}
+              <code className="rounded bg-muted px-1 py-0.5">
+                {DEMO_PASSWORD}
+              </code>
+            </p>
+          </div>
         </div>
       </div>
 

@@ -1,6 +1,7 @@
 import { cacheLife, cacheTag, revalidateTag } from "next/cache";
 import { prisma, withDbRetry } from "@/lib/db/client";
 import { invalidateMembersCache } from "@/lib/server/members";
+import { DEMO_WORKSPACES, isDemoUser } from "@/lib/demo";
 import type {
   Workspace,
   WorkspacePermission,
@@ -73,6 +74,9 @@ export interface UserWorkspace {
  */
 export async function getUserWorkspaces(userId: string): Promise<UserWorkspace[]> {
   "use cache";
+  if (isDemoUser(userId)) {
+    return DEMO_WORKSPACES;
+  }
   cacheLife({ stale: 30, revalidate: 60, expire: 300 });
   cacheTag(`workspaces:${userId}`);
 

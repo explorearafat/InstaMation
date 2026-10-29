@@ -25,6 +25,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { getWorkspaceMembers } from "@/lib/server/members";
 import { getSettingsData } from "@/lib/server/settings";
 import { getCurrentWorkspaceContext } from "@/lib/workspace-access";
+import { isDemoUser } from "@/lib/demo";
 import { prisma } from "@/lib/db/client";
 import { cn } from "@/lib/utils";
 
@@ -87,6 +88,10 @@ async function SettingsContent() {
   const context = await getCurrentWorkspaceContext();
   if (!context) redirect("/login");
 
+  const demoProfile = isDemoUser(context.userId)
+    ? { name: "Arafat", email: "admin@demo.instamation.app" }
+    : null;
+
   const [settings, members, user] = await Promise.all([
     getSettingsData(context.workspaceId),
     getWorkspaceMembers(
@@ -94,10 +99,11 @@ async function SettingsContent() {
       context.role,
       context.permissions
     ),
-    prisma.user.findUnique({
-      where: { id: context.userId },
-      select: { name: true, email: true },
-    }),
+    demoProfile ??
+      prisma.user.findUnique({
+        where: { id: context.userId },
+        select: { name: true, email: true },
+      }),
   ]);
 
   return (

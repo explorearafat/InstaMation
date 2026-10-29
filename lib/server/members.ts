@@ -5,6 +5,7 @@ import type {
 import { cacheLife, cacheTag, revalidateTag } from "next/cache";
 import { prisma } from "@/lib/db/client";
 import { buildInvitationUrl } from "@/lib/workspace-invitations";
+import { DEMO_MEMBERS, isDemoWorkspace } from "@/lib/demo";
 
 /**
  * Invalidate the cached members payload for a workspace.
@@ -60,6 +61,9 @@ export async function getWorkspaceMembers(
   currentUserPermissions: WorkspacePermission[]
 ): Promise<WorkspaceMembersPayload> {
   "use cache";
+  if (isDemoWorkspace(workspaceId)) {
+    return DEMO_MEMBERS;
+  }
   cacheLife({ stale: 300, revalidate: 300, expire: 3600 });
   cacheTag(`members:${workspaceId}`);
 

@@ -13,6 +13,7 @@ import {
   getApiSnapshot,
   setApiSnapshot,
 } from "@/lib/server/api-snapshots";
+import { DEMO_POSTS, isDemoWorkspace } from "@/lib/demo";
 
 export const RECENT_POSTS_TTL_SECONDS = 60 * 60;
 export const ALL_POSTS_TTL_SECONDS = 2 * 60 * 60;
@@ -62,6 +63,9 @@ export async function loadPostsData(
   params: PostsLoaderParams
 ): Promise<SnapshotResult<InstagramMedia[]>> {
   "use cache";
+  if (isDemoWorkspace(params.workspaceId)) {
+    return DEMO_POSTS as SnapshotResult<InstagramMedia[]>;
+  }
   // Front-cache capped at the snapshot TTLs (1h recent / 2h all-time) so it can
   // never serve data meaningfully older than the snapshot would.
   cacheLife({
@@ -80,6 +84,11 @@ export async function loadPostsDataImpl(
   params: PostsLoaderParams & { refresh?: boolean }
 ): Promise<SnapshotResult<InstagramMedia[]>> {
   const { workspaceId, account, loadAll, limit, refresh = false } = params;
+
+  if (isDemoWorkspace(workspaceId)) {
+    return DEMO_POSTS as SnapshotResult<InstagramMedia[]>;
+  }
+
   const ttlSeconds = loadAll
     ? ALL_POSTS_TTL_SECONDS
     : RECENT_POSTS_TTL_SECONDS;

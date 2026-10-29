@@ -1,6 +1,7 @@
 import { cacheLife, cacheTag } from "next/cache";
 import { DmStatus } from "@/app/generated/prisma/client";
 import { prisma } from "@/lib/db/client";
+import { DEMO_LOGS_PAGE, isDemoWorkspace } from "@/lib/demo";
 
 /**
  * Shared server-side query for the paginated DM log table.
@@ -65,6 +66,9 @@ export async function getLogsPage(
   params: LogsPageParams,
 ): Promise<LogsPageResult> {
   "use cache";
+  if (isDemoWorkspace(workspaceId)) {
+    return DEMO_LOGS_PAGE;
+  }
   // 15 min stale / 2 h hard expiry — logs are worker-written and the client
   // router already holds the page for 4 min, so fresh visits only pay the query
   // once per window per filter combination.

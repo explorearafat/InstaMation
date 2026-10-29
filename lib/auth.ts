@@ -3,10 +3,16 @@ import NextAuth, { type NextAuthConfig } from "next-auth";
 import GitHub from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 import Resend from "next-auth/providers/resend";
+import Credentials from "next-auth/providers/credentials";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { prisma } from "@/lib/db/client";
 import { ensureWorkspaceForUser } from "@/lib/workspace";
 import { sendVerificationRequest } from "@/lib/server/magic-link-email";
+import {
+  DEMO_PASSWORD,
+  DEMO_USER_ID,
+  DEMO_USERNAME,
+} from "@/lib/demo";
 
 type AdapterPrismaClient = Parameters<typeof PrismaAdapter>[0];
 
@@ -54,6 +60,29 @@ function buildProviders(): NextAuthConfig["providers"] {
       })
     );
   }
+  // Demo Login — fixed admin/123456 credentials render the dashboard with
+  // synthetic data (see lib/demo.ts); nothing touches the database.
+  providers.push(
+    Credentials({
+      id: "demo",
+      name: "Demo",
+      credentials: { username: {}, password: {} },
+      authorize(credentials) {
+        if (
+          credentials?.username === DEMO_USERNAME &&
+          credentials?.password === DEMO_PASSWORD
+        ) {
+          return {
+            id: DEMO_USER_ID,
+            name: "Arafat",
+            email: "admin@demo.instamation.app",
+          };
+        }
+        return null;
+      },
+    })
+  );
+
   // Allow boot even if no provider is configured — /login will show a setup hint.
   // This keeps local dev and CI from crashing when env is still being wired.
   return providers;

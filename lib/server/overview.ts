@@ -18,6 +18,7 @@ import {
   getApiSnapshot,
   setApiSnapshot,
 } from "@/lib/server/api-snapshots";
+import { DEMO_OVERVIEW, isDemoWorkspace } from "@/lib/demo";
 
 // Safety ceiling for "all time": bounds pagination and the number of
 // per-media insight requests so we can't hammer the API or time out.
@@ -165,6 +166,9 @@ export async function loadOverviewData(
   params: OverviewLoaderParams
 ): Promise<OverviewLoaderResult> {
   "use cache";
+  if (isDemoWorkspace(params.workspaceId)) {
+    return DEMO_OVERVIEW;
+  }
   // The durable Postgres snapshot governs freshness (1h recent / 2h all-time),
   // so this in-process front-cache revalidates at 1h and expires at 2h — it
   // can never serve data meaningfully older than the snapshot would. The 60s

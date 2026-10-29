@@ -4,6 +4,10 @@ import {
   withDiagnosticsRedisConnection,
 } from "@/lib/queue/client";
 import { getWorkerAlerts, getWorkerHealth } from "@/lib/ops/worker-health";
+import {
+  DEMO_DIAGNOSTICS_SECTIONS,
+  isDemoWorkspace,
+} from "@/lib/demo";
 
 /**
  * Shared server-side queries for the production diagnostics page.
@@ -58,6 +62,10 @@ export async function getDiagnosticsOverview() {
 }
 
 export async function getDiagnosticsSections(workspaceId: string) {
+  if (isDemoWorkspace(workspaceId)) {
+    return DEMO_DIAGNOSTICS_SECTIONS;
+  }
+
   const [
     webhookFailures,
     dmFailures,

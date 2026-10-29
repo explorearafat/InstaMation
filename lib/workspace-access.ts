@@ -7,6 +7,7 @@ import { cacheLife, cacheTag, revalidateTag } from "next/cache";
 import { cookies } from "next/headers";
 import { getCurrentUserId } from "@/lib/auth";
 import { prisma, withDbRetry } from "@/lib/db/client";
+import { getDemoWorkspaceContext, isDemoUser } from "@/lib/demo";
 import { ensureWorkspaceForUser } from "@/lib/workspace";
 import { WORKSPACE_COOKIE } from "@/lib/workspace-cookie";
 
@@ -64,6 +65,10 @@ export function canManageBilling(role: WorkspaceRole) {
 export async function getCurrentWorkspaceContext(): Promise<WorkspaceContext | null> {
   const userId = await getCurrentUserId();
   if (!userId) return null;
+
+  if (isDemoUser(userId)) {
+    return getDemoWorkspaceContext(userId);
+  }
 
   // Honor the active-workspace cookie so a member of several workspaces
   // resolves the one they switched to instead of always their oldest.

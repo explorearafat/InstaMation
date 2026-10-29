@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getCurrentWorkspaceId } from "@/lib/workspace-access";
+import { isDemoWorkspace } from "@/lib/demo";
 import { prisma } from "@/lib/db/client";
 
 /**
@@ -17,11 +18,20 @@ export async function GET() {
     );
   }
 
-  const instagramAccounts = await prisma.instagramAccount.findMany({
-    where: { workspaceId },
-    orderBy: { connectedAt: "desc" },
-    select: { id: true, username: true, instagramId: true, name: true },
-  });
+  const instagramAccounts = isDemoWorkspace(workspaceId)
+    ? [
+        {
+          id: "demo-ig-account",
+          username: "arafat",
+          instagramId: "17841400000000001",
+          name: "Arafat",
+        },
+      ]
+    : await prisma.instagramAccount.findMany({
+        where: { workspaceId },
+        orderBy: { connectedAt: "desc" },
+        select: { id: true, username: true, instagramId: true, name: true },
+      });
 
   return NextResponse.json(
     {

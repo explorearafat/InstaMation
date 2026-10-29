@@ -5,6 +5,7 @@ import {
   normalizeTopKeywords,
   summarizeDmStatuses,
 } from "@/lib/tracking/analytics";
+import { DEMO_INSIGHTS, DEMO_SUMMARY, isDemoWorkspace } from "@/lib/demo";
 
 /**
  * Invalidate every cached dashboard payload for a workspace.
@@ -113,6 +114,9 @@ export async function getDashboardSummary(
   selectedAccountId: string | null,
 ): Promise<DashboardSummaryData> {
   "use cache";
+  if (isDemoWorkspace(workspaceId)) {
+    return DEMO_SUMMARY;
+  }
   cacheLife({ stale: 120, revalidate: 120, expire: 3600 });
   cacheTag(`dash:stats:${workspaceId}`);
   return computeDashboardSummary(workspaceId, userId, selectedAccountId);
@@ -130,6 +134,9 @@ export async function getDashboardInsights(
   selectedAccountId: string | null,
 ): Promise<DashboardInsightsData> {
   "use cache";
+  if (isDemoWorkspace(workspaceId)) {
+    return DEMO_INSIGHTS;
+  }
   cacheLife({ stale: 300, revalidate: 300, expire: 7200 });
   cacheTag(`dash:stats:${workspaceId}`);
   return computeDashboardInsights(workspaceId, selectedAccountId);
