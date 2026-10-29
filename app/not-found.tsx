@@ -1,6 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeftIcon, HouseIcon } from "@phosphor-icons/react/dist/ssr";
+import {
+  HouseIcon,
+  WhatsappLogoIcon,
+} from "@phosphor-icons/react/dist/ssr";
 import { Button } from "@/components/ui/button";
 
 export const metadata = {
@@ -50,15 +53,18 @@ export default function NotFoundPage() {
             <Link href="/">
               <Button>
                 <HouseIcon className="h-4 w-4" aria-hidden="true" />
-                Go to Dashboard
-              </Button>
-            </Link>
-            <Link href="/">
-              <Button variant="link" className="text-sm text-muted-foreground">
-                <ArrowLeftIcon className="h-4 w-4" aria-hidden="true" />
                 Back to Home
               </Button>
             </Link>
+            <a
+              href="https://wa.me/8801610709657"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+            >
+              <WhatsappLogoIcon size={16} weight="fill" className="text-[#25D366]" />
+              Contact the Creator
+            </a>
           </div>
           <p className="mt-10 text-xs text-center text-muted-foreground">
             <Link
